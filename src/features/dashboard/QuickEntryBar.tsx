@@ -3,6 +3,16 @@ import { formatHours } from '../../lib/format';
 import { useQuickDefaults } from '../workdays/useQuickDefaults';
 import { useWorkDaySheet } from '../workdays/WorkDaySheetProvider';
 
+function ArrowDisc({ icon }: { icon: 'plus' | 'arrow' }) {
+  return (
+    <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#141414] text-white" aria-hidden>
+      <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+        {icon === 'plus' ? <path d="M12 5v14M5 12h14" /> : <path d="M7 17 17 7M9 7h8v8" />}
+      </svg>
+    </span>
+  );
+}
+
 /** Großer Knopf im Daumenbereich: Ein Tipp öffnet die Eingabe mit den Werten vom letzten Mal. */
 export function QuickEntryBar({ loggedToday }: { loggedToday: boolean }) {
   const sheet = useWorkDaySheet();
@@ -10,13 +20,16 @@ export function QuickEntryBar({ loggedToday }: { loggedToday: boolean }) {
   if (loading) return null;
 
   const wrap =
-    'fixed inset-x-0 bottom-[calc(4rem+2px+env(safe-area-inset-bottom))] z-10 mx-auto max-w-xl px-4 pb-3 pt-2 bg-gradient-to-t from-paper from-70% to-transparent';
+    'fixed inset-x-0 bottom-[calc(4rem+max(0.5rem,env(safe-area-inset-bottom)))] z-10 mx-auto max-w-xl px-3 pb-2 pt-6 bg-gradient-to-t from-paper from-60% to-transparent';
+  const pill =
+    'flex min-h-16 w-full items-center justify-between gap-3 rounded-full bg-hivis py-2 pr-2 pl-6 text-left text-on-hivis active:brightness-95';
 
   if (!employer) {
     return (
       <div className={wrap}>
-        <Link to="/arbeitgeber/neu" className="flex min-h-16 w-full items-center justify-center rounded-xl bg-stamp px-5 text-lg font-bold text-on-stamp shadow-md">
-          Ersten Arbeitgeber anlegen
+        <Link to="/arbeitgeber/neu" className={pill}>
+          <span className="text-lg font-medium">Ersten Arbeitgeber anlegen</span>
+          <ArrowDisc icon="arrow" />
         </Link>
       </div>
     );
@@ -24,15 +37,14 @@ export function QuickEntryBar({ loggedToday }: { loggedToday: boolean }) {
 
   return (
     <div className={wrap}>
-      <button
-        type="button"
-        onClick={() => sheet.openNew()}
-        className="flex min-h-16 w-full flex-col items-start justify-center rounded-xl bg-stamp px-5 py-2 text-left text-on-stamp shadow-md active:brightness-90"
-      >
-        <span className="text-lg font-bold">{loggedToday ? 'Weiteren Tag erfassen' : 'Heute erfassen'}</span>
-        <span className="text-small opacity-90">
-          {employer.name}, {formatHours(hours)}
+      <button type="button" onClick={() => sheet.openNew()} className={pill}>
+        <span className="flex min-w-0 flex-col">
+          <span className="text-lg leading-tight font-medium">{loggedToday ? 'Weiteren Tag erfassen' : 'Heute erfassen'}</span>
+          <span className="truncate text-small opacity-70">
+            {employer.name}, {formatHours(hours)}
+          </span>
         </span>
+        <ArrowDisc icon="plus" />
       </button>
     </div>
   );

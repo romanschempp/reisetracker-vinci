@@ -1,70 +1,76 @@
 @import 'tailwindcss';
 
 /*
- * Farbwelt: Saltbush-Papier, Eukalyptus-Tinte, Visumsstempel-Blau.
- * Hi-Vis-Gelb nur als Markierung für „heute“.
+ * Farbwelt: Salbei, Papierweiß und Tiefschwarz – ruhig und grafisch.
+ * Warnwesten-Gelb ist der einzige Akzent: für „heute“ und den Haupt-Knopf.
+ * Rot und Grün nur für Hinweise, die man nicht übersehen darf.
  */
 :root,
 [data-theme='light'] {
   color-scheme: light;
-  --paper: #e8ece4;
-  --raised: #f5f7f2;
-  --ink: #1e2b24;
-  --muted: #4b5a51;
-  --line: #c6cfc3;
-  --stamp: #2946a8;
-  --on-stamp: #f5f7f2;
-  --stamp-wash: #d6ddf1;
-  --redpen: #ad2d17;
-  --redpen-wash: #f2d8d0;
-  --paddock: #2c6844;
-  --paddock-wash: #d3e5d5;
-  --hivis: #f5c400;
-  --tally-empty: rgb(30 43 36 / 0.16);
-  /* Kartenfarben der Bundesstaaten – Erdtöne, benachbarte klar unterscheidbar */
-  --sea: #d4ddef;
-  --region-border: #f5f7f2;
-  --region-wa: #ecd9b1;
-  --region-nt: #eac3ab;
-  --region-sa: #dde3c1;
-  --region-qld: #c7e0cd;
-  --region-nsw: #cfdaec;
-  --region-vic: #dcd3ea;
-  --region-tas: #c0ddd7;
-  --region-act: #f1dd9f;
+  --paper: #e3e6df;
+  --raised: #f8f8f5;
+  --sage: #c9cfc4;
+  --ink: #141414;
+  --muted: #62685f;
+  --line: #c4cac0;
+  --stamp: #141414;
+  --on-stamp: #f8f8f5;
+  --stamp-wash: #d4d9cf;
+  --redpen: #a8321e;
+  --redpen-wash: #efd9d2;
+  --paddock: #2f5c3e;
+  --paddock-wash: #d3e0d1;
+  --hivis: #e2f23f;
+  --on-hivis: #141414;
+  --tally-empty: rgb(20 20 20 / 0.14);
+  /* Kartenfarben der Bundesstaaten – Salbei- und Steintöne, benachbarte unterscheidbar */
+  --sea: #f8f8f5;
+  --region-border: #f8f8f5;
+  --region-wa: #d3d8ce;
+  --region-nt: #bfc6ba;
+  --region-sa: #c9cfc4;
+  --region-qld: #d9ddd4;
+  --region-nsw: #bcc3b7;
+  --region-vic: #d1d6cb;
+  --region-tas: #b3bbae;
+  --region-act: #a9b1a4;
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
-  --paper: #11161b;
-  --raised: #1a2128;
-  --ink: #dce3dc;
-  --muted: #9aa69e;
-  --line: #2d363e;
-  --stamp: #94a9f2;
-  --on-stamp: #11161b;
-  --stamp-wash: #1f2a4a;
-  --redpen: #f2917b;
-  --redpen-wash: #3b211b;
-  --paddock: #8fc9a2;
-  --paddock-wash: #1b2f24;
-  --hivis: #f5c400;
-  --tally-empty: rgb(220 227 220 / 0.14);
-  --sea: #172033;
-  --region-border: #11161b;
-  --region-wa: #3b3322;
-  --region-nt: #402b22;
-  --region-sa: #33382a;
-  --region-qld: #223a2c;
-  --region-nsw: #25303f;
-  --region-vic: #322b3e;
-  --region-tas: #20393a;
-  --region-act: #433a1c;
+  --paper: #0e0f0e;
+  --raised: #1a1c19;
+  --sage: #2a2e28;
+  --ink: #eceee9;
+  --muted: #9ba197;
+  --line: #2f332d;
+  --stamp: #eceee9;
+  --on-stamp: #0e0f0e;
+  --stamp-wash: #262a24;
+  --redpen: #f0937d;
+  --redpen-wash: #3a211b;
+  --paddock: #9ccaa6;
+  --paddock-wash: #1c2c21;
+  --hivis: #e2f23f;
+  --on-hivis: #141414;
+  --tally-empty: rgb(236 238 233 / 0.14);
+  --sea: #141513;
+  --region-border: #141513;
+  --region-wa: #2b2f29;
+  --region-nt: #353a32;
+  --region-sa: #30352d;
+  --region-qld: #272b25;
+  --region-nsw: #383d35;
+  --region-vic: #2e332c;
+  --region-tas: #3d4339;
+  --region-act: #464c42;
 }
 
 @theme inline {
   --color-paper: var(--paper);
   --color-raised: var(--raised);
+  --color-sage: var(--sage);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-line: var(--line);
@@ -76,19 +82,19 @@
   --color-paddock: var(--paddock);
   --color-paddock-wash: var(--paddock-wash);
   --color-hivis: var(--hivis);
+  --color-on-hivis: var(--on-hivis);
 
-  --font-sans: 'Atkinson Hyperlegible Next Variable', 'Atkinson Hyperlegible Next', system-ui, sans-serif;
-  --font-sign: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-sans: 'Inter Tight Variable', 'Inter Tight', system-ui, sans-serif;
 
-  /* Typografische Skala, Basis 17px, Verhältnis ≈ 1.25 */
+  /* Typografische Skala, Basis 17px; große Zahlen dünn und eng gesetzt */
   --text-small: 0.882rem;
   --text-small--line-height: 1.4;
   --text-body: 1.0625rem;
   --text-body--line-height: 1.5;
-  --text-title: 1.75rem;
-  --text-title--line-height: 1.1;
-  --text-hero: 5.5rem;
-  --text-hero--line-height: 0.9;
+  --text-title: 2.25rem;
+  --text-title--line-height: 1.05;
+  --text-hero: 8rem;
+  --text-hero--line-height: 0.85;
 }
 
 @layer base {
@@ -106,6 +112,13 @@
     min-height: 100dvh;
     overscroll-behavior-y: none;
   }
+  /* Zahlen in Listen und Kacheln stehen sauber untereinander */
+  h1,
+  h2,
+  time,
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
   /* Inputs unter 16px lassen iOS beim Fokus zoomen */
   input,
   select,
@@ -113,7 +126,7 @@
     font-size: max(16px, 1em);
   }
   :focus-visible {
-    outline: 3px solid var(--stamp);
+    outline: 2px solid var(--ink);
     outline-offset: 2px;
   }
   button {

@@ -53,8 +53,8 @@ export function WorkDaysPage() {
           </p>
           {months.map((month) => (
             <section key={month.label} aria-label={month.label} className="mb-6">
-              <h2 className="sticky top-0 z-[1] bg-paper py-2 font-sign text-xl font-bold">{month.label}</h2>
-              <ul className="divide-y-2 divide-line border-y-2 border-line">
+              <h2 className="sticky top-0 z-[1] bg-paper py-2 text-2xl font-medium tracking-tight">{month.label}</h2>
+              <ul className="divide-y divide-line rounded-3xl bg-raised px-5">
                 {month.days.map((d) => {
                   const employer = employerById.get(d.employerId);
                   const counts = employer ? statusCounts(regionalStatus(employer.postcode, employer.workType)) : false;
@@ -64,18 +64,18 @@ export function WorkDaysPage() {
                         type="button"
                         onClick={() => sheet.openEdit(d)}
                         aria-label={`${formatDate(d.date)} bei ${employer?.name ?? 'unbekannt'} bearbeiten`}
-                        className="grid w-full grid-cols-[3.5rem_1fr_auto] items-center gap-3 py-3 text-left active:bg-raised"
+                        className="grid w-full grid-cols-[3.5rem_1fr_auto] items-center gap-3 py-3 text-left active:opacity-60"
                       >
-                        <span className="flex flex-col font-sign leading-none">
+                        <span className="flex flex-col leading-none">
                           <span className="text-small text-muted">{weekdayShort(d.date)}</span>
-                          <span className="text-2xl font-bold">{d.date.slice(8)}.{d.date.slice(5, 7)}.</span>
+                          <span className="text-2xl font-light tracking-tight tabular-nums">{d.date.slice(8)}.{d.date.slice(5, 7)}.</span>
                         </span>
                         <span className="flex min-w-0 flex-col">
-                          <span className="truncate font-bold">{employer?.name ?? 'Unbekannter Arbeitgeber'}</span>
-                          {!counts && <span className="text-small font-bold text-redpen">Zählt nicht</span>}
+                          <span className="truncate font-semibold">{employer?.name ?? 'Unbekannter Arbeitgeber'}</span>
+                          {!counts && <span className="text-small font-semibold text-redpen">Zählt nicht</span>}
                           {d.note && <span className="truncate text-small text-muted">{d.note}</span>}
                         </span>
-                        <span className="font-sign text-xl font-bold">{formatHours(d.hours)}</span>
+                        <span className="text-2xl font-light tracking-tight tabular-nums">{formatHours(d.hours)}</span>
                       </button>
                     </li>
                   );

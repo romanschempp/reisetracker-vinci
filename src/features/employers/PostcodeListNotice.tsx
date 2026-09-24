@@ -10,7 +10,7 @@ export function PostcodeListNotice({ workTypes }: { workTypes: WorkType[] }) {
   const names = missing.map((k) => POSTCODE_LISTS[k].label).join(', ');
   return (
     <Banner tone="info">
-      <p className="font-bold">Regional-Prüfung noch nicht aktiv</p>
+      <p className="font-semibold">Regional-Prüfung noch nicht aktiv</p>
       <p className="text-small">
         Die Postleitzahlenliste „{names}“ ist leer. Bis du sie in <code>src/config/regionalPostcodes.ts</code>{' '}
         einträgst, zählen diese Tage vorläufig mit.

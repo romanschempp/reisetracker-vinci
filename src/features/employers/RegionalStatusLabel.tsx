@@ -10,7 +10,7 @@ const COLORS: Record<RegionalStatus, string> = {
 /** Farbiges Quadrat + Text: die Farbe allein trägt nie die Information. */
 export function RegionalStatusLabel({ status }: { status: RegionalStatus }) {
   return (
-    <span className={`inline-flex items-center gap-1.5 text-small font-bold ${COLORS[status]}`}>
+    <span className={`inline-flex items-center gap-1.5 text-small font-semibold ${COLORS[status]}`}>
       <span className="size-2.5 rounded-sm bg-current" aria-hidden />
       {STATUS_LABELS[status]}
     </span>

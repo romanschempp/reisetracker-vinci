@@ -25,10 +25,10 @@ export function DateField({ label, value, onChange, shortcuts = false, optional 
 
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="font-bold">
+      <label htmlFor={id} className="font-semibold">
         {label}
       </label>
-      <div className="relative flex min-h-14 items-center rounded-lg border-2 border-line bg-raised px-4 focus-within:border-stamp">
+      <div className="relative flex min-h-14 items-center rounded-2xl border border-line bg-raised px-4 focus-within:border-stamp">
         <span className={value ? '' : 'text-muted'}>{value ? formatDateRelative(value, today) : 'Kein Datum'}</span>
         <input
           id={id}
@@ -47,13 +47,13 @@ export function DateField({ label, value, onChange, shortcuts = false, optional 
                 type="button"
                 onClick={() => onChange(date)}
                 aria-pressed={value === date}
-                className="min-h-12 rounded-full border-2 border-line px-4 font-bold aria-pressed:border-stamp aria-pressed:bg-stamp aria-pressed:text-on-stamp"
+                className="min-h-12 rounded-full border border-ink/40 px-5 font-medium aria-pressed:border-stamp aria-pressed:bg-stamp aria-pressed:text-on-stamp"
               >
                 {text}
               </button>
             ))}
           {optional && value && onClear && (
-            <button type="button" onClick={onClear} className="min-h-12 px-2 font-bold text-stamp">
+            <button type="button" onClick={onClear} className="min-h-12 px-2 font-medium underline underline-offset-4">
               Datum entfernen
             </button>
           )}

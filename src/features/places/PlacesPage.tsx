@@ -19,7 +19,7 @@ type Mode = { kind: 'new'; pos?: LatLng } | { kind: 'view'; id: string } | { kin
 
 function Cover({ placeId }: { placeId: string }) {
   const first = useLiveQuery(() => db.photos.where('placeId').equals(placeId).first(), [placeId]);
-  if (!first) return <span className="block size-14 rounded-lg bg-raised" aria-hidden />;
+  if (!first) return <span className="block size-14 rounded-2xl bg-raised" aria-hidden />;
   return <Thumb blob={first.thumb} alt="" className="size-14" />;
 }
 
@@ -62,7 +62,7 @@ export function PlacesPage() {
           auf der Karte verbunden.
         </EmptyState>
       ) : (
-        <ol className="mt-6 divide-y-2 divide-line border-y-2 border-line" aria-label="Deine Reise">
+        <ol className="mt-6 divide-y divide-line rounded-3xl bg-raised px-5" aria-label="Deine Reise">
           {places.map((p: Place, i) => {
             const n = counts?.get(p.id) ?? 0;
             return (
@@ -70,13 +70,13 @@ export function PlacesPage() {
                 <button
                   type="button"
                   onClick={() => open({ kind: 'view', id: p.id })}
-                  className="grid w-full grid-cols-[2.25rem_1fr_auto] items-center gap-3 py-3 text-left active:bg-raised"
+                  className="grid w-full grid-cols-[2.25rem_1fr_auto] items-center gap-3 py-3 text-left active:opacity-60"
                 >
-                  <span className="flex size-9 items-center justify-center rounded-full bg-stamp font-sign text-lg font-bold text-on-stamp">
+                  <span className="flex size-9 items-center justify-center rounded-full bg-stamp text-base font-medium text-on-stamp tabular-nums">
                     {i + 1}
                   </span>
                   <span className="flex min-w-0 flex-col">
-                    <span className="truncate font-bold">{p.name}</span>
+                    <span className="truncate font-semibold">{p.name}</span>
                     <span className="text-small text-muted">{formatStay(p)}</span>
                     {n > 0 && <span className="text-small text-muted">{plural(n, 'Foto', 'Fotos')}</span>}
                   </span>

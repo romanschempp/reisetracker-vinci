@@ -28,7 +28,7 @@ export function PhotoViewer({ photos, index, onIndex, placeName }: Props) {
 
   const go = (delta: number) => index !== null && onIndex((index + delta + photos.length) % photos.length);
 
-  const btn = 'min-h-12 rounded-lg px-4 font-bold text-white active:bg-white/15 disabled:opacity-30';
+  const btn = 'min-h-12 rounded-2xl px-4 font-semibold text-white active:bg-white/15 disabled:opacity-30';
 
   return (
     <dialog

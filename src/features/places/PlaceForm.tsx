@@ -86,7 +86,7 @@ export function PlaceForm({ place, initialPos, places, onDone }: Props) {
       </Field>
 
       <div className="flex flex-col gap-2">
-        <span className="font-bold">Position</span>
+        <span className="font-semibold">Position</span>
         <AustraliaMap
           places={others}
           draft={pos}
@@ -96,7 +96,7 @@ export function PlaceForm({ place, initialPos, places, onDone }: Props) {
           }}
           label="Karte zum Setzen der Position. Tipp auf die Stelle, an der du bist."
         />
-        <p className={`text-small ${errors.pos ? 'font-bold text-redpen' : 'text-muted'}`}>
+        <p className={`text-small ${errors.pos ? 'font-semibold text-redpen' : 'text-muted'}`}>
           {errors.pos ?? (pos ? `Gesetzt: ${formatLatLng(pos)}` : 'Tipp auf die Karte, zum Zoomen zwei Finger oder die Knöpfe.')}
         </p>
         <Button variant="secondary" block onClick={locate} disabled={gps === 'locating'}>
@@ -116,10 +116,10 @@ export function PlaceForm({ place, initialPos, places, onDone }: Props) {
 
       <DateField label="Angekommen" value={arrival} onChange={setArrival} shortcuts />
       <DateField label="Abgereist (optional)" value={departure} onChange={setDeparture} optional onClear={() => setDeparture('')} />
-      {errors.departure && <p className="-mt-3 text-small font-bold text-redpen">{errors.departure}</p>}
+      {errors.departure && <p className="-mt-3 text-small font-semibold text-redpen">{errors.departure}</p>}
 
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="place-note" className="font-bold">
+        <label htmlFor="place-note" className="font-semibold">
           Notiz (optional)
         </label>
         <textarea
@@ -134,7 +134,7 @@ export function PlaceForm({ place, initialPos, places, onDone }: Props) {
 
       {!place && (
         <div className="flex flex-col gap-2">
-          <span className="font-bold">Fotos</span>
+          <span className="font-semibold">Fotos</span>
           {files.length > 0 && (
             <ul className="grid grid-cols-4 gap-2">
               {files.map((f, i) => (
@@ -144,7 +144,7 @@ export function PlaceForm({ place, initialPos, places, onDone }: Props) {
                     type="button"
                     onClick={() => setFiles((fs) => fs.filter((_, j) => j !== i))}
                     aria-label={`Foto ${i + 1} entfernen`}
-                    className="absolute -top-2 -right-2 flex size-8 items-center justify-center rounded-full border-2 border-paper bg-ink text-paper"
+                    className="absolute -top-2 -right-2 flex size-8 items-center justify-center rounded-full border border-paper bg-ink text-paper"
                   >
                     ×
                   </button>

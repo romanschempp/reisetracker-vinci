@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router';
 
-const s = { fill: 'none', stroke: 'currentColor', strokeWidth: 2.2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+const s = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
 
 const ICONS = {
   tally: (
@@ -40,33 +40,29 @@ const ITEMS = [
   { to: '/mehr', label: 'Mehr', icon: ICONS.more, end: false },
 ];
 
+/** Schwebende schwarze Leiste – bleibt in beiden Themes dunkel, wie die Kacheln im Design. */
 export function BottomNav() {
   return (
     <nav
       aria-label="Hauptbereiche"
-      className="fixed inset-x-0 bottom-0 z-10 border-t-2 border-line bg-paper pb-[env(safe-area-inset-bottom)]"
+      className="fixed inset-x-0 bottom-0 z-10 px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
     >
-      <ul className="mx-auto grid max-w-xl grid-cols-5">
+      <ul className="mx-auto grid h-16 max-w-xl grid-cols-5 rounded-full bg-[#141414] px-1.5 ring-1 ring-white/10">
         {ITEMS.map((item) => (
-          <li key={item.to}>
+          <li key={item.to} className="flex items-center">
             <NavLink
               to={item.to}
               end={item.end}
               className={({ isActive }) =>
-                `relative flex min-h-16 flex-col items-center justify-center gap-0.5 text-[0.8125rem] ${
-                  isActive ? 'font-bold text-stamp' : 'text-muted'
+                `flex h-13 w-full flex-col items-center justify-center gap-0.5 rounded-full text-[0.6875rem] tracking-wide ${
+                  isActive ? 'bg-white/12 font-medium text-white' : 'text-white/55'
                 }`
               }
             >
-              {({ isActive }) => (
-                <>
-                  {isActive && <span className="absolute inset-x-3 top-0 h-1 rounded-b bg-stamp" aria-hidden />}
-                  <span className="size-6" aria-hidden>
-                    {item.icon}
-                  </span>
-                  {item.label}
-                </>
-              )}
+              <span className="size-5.5" aria-hidden>
+                {item.icon}
+              </span>
+              {item.label}
             </NavLink>
           </li>
         ))}

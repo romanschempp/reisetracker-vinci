@@ -77,7 +77,7 @@ export function BackupSection() {
 
   return (
     <section aria-labelledby="backup-heading" className="flex flex-col gap-3">
-      <h2 id="backup-heading" className="font-sign text-xl font-bold">
+      <h2 id="backup-heading" className="text-2xl font-medium tracking-tight">
         Backup
       </h2>
       <p className="text-muted">
@@ -104,7 +104,7 @@ export function BackupSection() {
       {status && (
         <div role="status">
           <Banner tone={status.tone}>
-            <p className="text-small font-bold">{status.text}</p>
+            <p className="text-small font-semibold">{status.text}</p>
           </Banner>
         </div>
       )}

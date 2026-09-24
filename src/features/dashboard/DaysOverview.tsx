@@ -73,13 +73,13 @@ export function DaysOverview({ workDays, workedDates, creditedDates }: Props) {
         onClick={() => (entry ? sheet.openEdit(entry) : sheet.openNew(date))}
         aria-label={`${weekdayShort(date)}, ${formatDate(date)}: ${state}`}
         aria-current={isToday ? 'date' : undefined}
-        className={`flex w-full flex-col items-center justify-center rounded-lg border-2 font-sign disabled:opacity-35 ${
+        className={`flex w-full flex-col items-center justify-center rounded-2xl border tabular-nums disabled:opacity-35 ${
           size === 'large' ? 'min-h-16 gap-1' : 'min-h-12 gap-0.5'
-        } ${worked ? 'border-stamp bg-stamp text-on-stamp' : credited ? 'border-stamp text-stamp' : 'border-line text-ink'}`}
+        } ${worked ? 'border-stamp bg-stamp text-on-stamp' : credited ? 'border-stamp text-ink' : 'border-transparent bg-paper text-ink'}`}
       >
-        {size === 'large' && <span className="text-small leading-none">{weekdayShort(date)}</span>}
-        <span className={`font-bold leading-none ${size === 'large' ? 'text-xl' : 'text-lg'}`}>{Number(date.slice(8))}</span>
-        <span className={`h-1 w-5 rounded-full ${isToday ? 'bg-hivis' : 'bg-transparent'}`} aria-hidden />
+        {size === 'large' && <span className="text-[0.75rem] leading-none opacity-70">{weekdayShort(date)}</span>}
+        <span className={`font-normal leading-none ${size === 'large' ? 'text-xl' : 'text-lg'}`}>{Number(date.slice(8))}</span>
+        <span className={`h-1.5 w-5 rounded-full ${isToday ? 'bg-hivis ring-1 ring-ink/25' : 'bg-transparent'}`} aria-hidden />
       </button>
     );
   };
@@ -89,12 +89,12 @@ export function DaysOverview({ workDays, workedDates, creditedDates }: Props) {
   const workedInMonth = monthDays.filter((d) => workedDates.has(d)).length;
   const fullTimeInMonth = monthDays.filter((d) => creditedDates.has(d) && !workedDates.has(d)).length;
 
-  const tab = 'min-h-12 flex-1 rounded-md px-3 font-bold aria-pressed:bg-paper aria-pressed:text-stamp aria-pressed:shadow-sm';
-  const arrow = 'flex size-12 items-center justify-center rounded-lg border-2 border-line text-xl font-bold disabled:opacity-30';
+  const tab = 'min-h-11 flex-1 rounded-full px-3 font-medium aria-pressed:bg-stamp aria-pressed:text-on-stamp';
+  const arrow = 'flex size-12 items-center justify-center rounded-full border border-ink/40 text-xl disabled:opacity-25';
 
   return (
-    <section aria-label="Arbeitstage im Überblick" className="flex flex-col gap-3">
-      <div className="flex rounded-lg bg-raised p-1 text-muted" role="group" aria-label="Zeitraum">
+    <section aria-label="Arbeitstage im Überblick" className="flex flex-col gap-4 rounded-3xl bg-raised p-4">
+      <div className="flex rounded-full bg-paper p-1 text-muted" role="group" aria-label="Zeitraum">
         <button type="button" className={tab} aria-pressed={range === 'week'} onClick={() => choose('week')}>
           Diese Woche
         </button>
@@ -116,7 +116,7 @@ export function DaysOverview({ workDays, workedDates, creditedDates }: Props) {
               ‹
             </button>
             <div className="text-center">
-              <p className="font-sign text-xl font-bold" aria-live="polite">
+              <p className="text-2xl font-medium tracking-tight" aria-live="polite">
                 {monthLabel(month)}
               </p>
               <p className="text-small text-muted">
@@ -138,13 +138,13 @@ export function DaysOverview({ workDays, workedDates, creditedDates }: Props) {
           </ol>
           <ul className="flex flex-wrap gap-x-4 gap-y-1 text-small text-muted">
             <li className="flex items-center gap-1.5">
-              <span className="size-3 rounded-sm bg-stamp" aria-hidden /> gearbeitet
+              <span className="size-3 rounded-full bg-stamp" aria-hidden /> gearbeitet
             </li>
             <li className="flex items-center gap-1.5">
-              <span className="size-3 rounded-sm border-2 border-stamp" aria-hidden /> Vollzeitwoche
+              <span className="size-3 rounded-full border border-stamp" aria-hidden /> Vollzeitwoche
             </li>
             <li className="flex items-center gap-1.5">
-              <span className="h-1 w-3 rounded-full bg-hivis" aria-hidden /> heute
+              <span className="h-1.5 w-3 rounded-full bg-hivis ring-1 ring-ink/25" aria-hidden /> heute
             </li>
           </ul>
         </>

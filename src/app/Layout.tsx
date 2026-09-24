@@ -8,7 +8,7 @@ export function Layout() {
 
   return (
     <>
-      <main className="mx-auto max-w-xl px-4 pt-[env(safe-area-inset-top)] pb-[calc(9rem+env(safe-area-inset-bottom))]">
+      <main className="mx-auto max-w-xl px-4 pt-[env(safe-area-inset-top)] pb-[calc(11rem+env(safe-area-inset-bottom))]">
         <Outlet />
       </main>
       <BottomNav />

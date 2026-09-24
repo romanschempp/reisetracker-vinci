@@ -9,7 +9,7 @@ import { WORK_TYPE_LABELS, regionalStatus } from '../../lib/regional';
 import { PostcodeListNotice } from './PostcodeListNotice';
 import { RegionalStatusLabel } from './RegionalStatusLabel';
 
-const newLinkClass = 'inline-flex min-h-12 items-center rounded-lg bg-stamp px-4 font-bold text-on-stamp';
+const newLinkClass = 'inline-flex min-h-12 items-center rounded-full bg-stamp px-5 font-medium text-on-stamp';
 
 export function EmployersPage() {
   const employers = useEmployers();
@@ -54,14 +54,14 @@ export function EmployersPage() {
       ) : (
         <div className="flex flex-col gap-4">
           <PostcodeListNotice workTypes={employers.map((e) => e.workType)} />
-          <ul className="divide-y-2 divide-line border-y-2 border-line">
+          <ul className="divide-y divide-line rounded-3xl bg-raised px-5">
             {employers.map((e) => {
               const days = daysByEmployer.get(e.id)?.size ?? 0;
               return (
                 <li key={e.id}>
-                  <Link to={`/arbeitgeber/${e.id}`} className="flex flex-col gap-1 py-4 active:bg-raised">
+                  <Link to={`/arbeitgeber/${e.id}`} className="flex flex-col gap-1 py-4 active:opacity-60">
                     <span className="flex items-baseline justify-between gap-3">
-                      <span className="text-lg font-bold">{e.name}</span>
+                      <span className="text-lg font-semibold">{e.name}</span>
                       <RegionalStatusLabel status={regionalStatus(e.postcode, e.workType)} />
                     </span>
                     <span className="text-muted">

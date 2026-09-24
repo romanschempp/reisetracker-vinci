@@ -14,7 +14,7 @@ export function BackupReminder({ lastBackupAt }: { lastBackupAt?: string }) {
 
   return (
     <Banner tone="warn">
-      <p className="font-bold">
+      <p className="font-semibold">
         {daysAgo === null ? 'Du hast noch kein Backup gemacht' : `Letztes Backup vor ${plural(daysAgo, 'Tag', 'Tagen')}`}
       </p>
       <p className="mb-3 text-small">

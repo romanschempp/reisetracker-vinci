@@ -66,7 +66,7 @@ export function WorkDaySheetProvider({ children }: { children: ReactNode }) {
         role="status"
         className="pointer-events-none fixed inset-x-0 bottom-[calc(5rem+env(safe-area-inset-bottom))] z-20 flex justify-center px-4"
       >
-        {toast && <p className="rounded-lg bg-ink px-5 py-3 font-bold text-paper shadow-lg">{toast}</p>}
+        {toast && <p className="rounded-2xl bg-ink px-5 py-3 font-semibold text-paper shadow-lg">{toast}</p>}
       </div>
     </Ctx.Provider>
   );

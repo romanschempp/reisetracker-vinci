@@ -17,11 +17,11 @@ export function HoursStepper({ value, onChange }: Props) {
 
   const step = (delta: number) => onChange(Math.min(24, Math.max(STEP, value + delta)));
   const stepClass =
-    'size-14 shrink-0 rounded-lg border-2 border-line text-2xl font-bold active:bg-raised disabled:opacity-40';
+    'size-14 shrink-0 rounded-full border border-ink/40 text-2xl font-light active:bg-ink/5 disabled:opacity-40';
 
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="font-bold">
+      <label htmlFor={id} className="font-semibold">
         Stunden
       </label>
       <div className="flex items-center gap-2">
@@ -39,7 +39,7 @@ export function HoursStepper({ value, onChange }: Props) {
           }}
           onBlur={() => setText(String(value).replace('.', ','))}
           aria-describedby={`${id}-v`}
-          className="min-h-14 w-full min-w-0 rounded-lg border-2 border-line bg-raised text-center font-sign text-title font-bold focus:border-stamp focus:outline-none"
+          className="min-h-14 w-full min-w-0 rounded-2xl border border-line bg-raised text-center text-title font-light tracking-tight focus:border-stamp focus:outline-none"
         />
         <button type="button" className={stepClass} onClick={() => step(STEP)} disabled={value >= 24} aria-label="Eine halbe Stunde mehr">
           +

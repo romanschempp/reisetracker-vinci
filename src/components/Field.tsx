@@ -1,7 +1,7 @@
 import { useId, type ReactNode } from 'react';
 
 export const inputClass =
-  'block w-full min-h-14 rounded-lg border-2 border-line bg-raised px-4 text-ink placeholder:text-muted/70 focus:border-stamp focus:outline-none aria-[invalid=true]:border-redpen';
+  'block w-full min-h-14 rounded-2xl border border-line bg-raised px-4 text-ink placeholder:text-muted/70 focus:border-stamp focus:outline-none aria-[invalid=true]:border-redpen';
 
 interface Props {
   label: string;
@@ -17,12 +17,12 @@ export function Field({ label, hint, error, children }: Props) {
   const describedBy = error || hint ? hintId : undefined;
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="font-bold">
+      <label htmlFor={id} className="font-semibold">
         {label}
       </label>
       {children({ id, 'aria-describedby': describedBy, 'aria-invalid': error ? true : undefined })}
       {(error || hint) && (
-        <p id={hintId} className={`text-small ${error ? 'text-redpen font-bold' : 'text-muted'}`}>
+        <p id={hintId} className={`text-small ${error ? 'text-redpen font-semibold' : 'text-muted'}`}>
           {error ?? hint}
         </p>
       )}

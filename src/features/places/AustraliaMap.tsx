@@ -152,14 +152,14 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
     setView((v) => zoomAt(v, factor, v.x + v.w / 2, v.y + (v.w * ASPECT) / 2));
 
   const ctrl =
-    'flex size-12 items-center justify-center rounded-lg border-2 border-line bg-paper text-xl font-bold text-ink shadow-sm active:bg-raised';
+    'flex size-12 items-center justify-center rounded-full bg-[#141414] text-xl font-light text-white active:opacity-80';
 
   return (
-    <div className="relative overflow-hidden rounded-xl border-2 border-line">
+    <div className="relative overflow-hidden rounded-3xl">
       <svg
         ref={svgRef}
         viewBox={`${view.x} ${view.y} ${view.w} ${h}`}
-        className="block aspect-[1000/917] w-full touch-none select-none bg-[var(--sea)] font-sign"
+        className="block aspect-[1000/917] w-full touch-none select-none bg-[var(--sea)]"
         role="img"
         aria-label={label}
         onPointerDown={onPointerDown}
@@ -191,7 +191,7 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
               y={r.label[1]}
               textAnchor="middle"
               fontSize={(full ? 15 : 13) * k}
-              fontWeight={700}
+              fontWeight={500}
               letterSpacing={1 * k}
               fill="var(--ink)"
               opacity={0.45}
@@ -210,7 +210,7 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
               y={town.y + 4 * k}
               textAnchor={anchor}
               fontSize={12 * k}
-              fontWeight={town.rank <= 3 ? 700 : 400}
+              fontWeight={town.rank <= 3 ? 600 : 400}
               fill="var(--ink)"
               stroke="var(--raised)"
               strokeWidth={3 * k}
@@ -247,7 +247,7 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
                 y={y + 4.5 * k}
                 textAnchor="middle"
                 fontSize={13 * k}
-                fontWeight={700}
+                fontWeight={500}
                 fill="var(--on-stamp)"
               >
                 {i + 1}
@@ -264,7 +264,7 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
         )}
       </svg>
 
-      <div className="pointer-events-none absolute bottom-2 left-2 flex flex-col gap-0.5 rounded bg-paper/85 px-2 py-1 font-sign text-small leading-none" aria-hidden>
+      <div className="pointer-events-none absolute bottom-2 left-2 flex flex-col gap-0.5 rounded-xl bg-raised/90 px-3 py-1.5 text-small leading-none" aria-hidden>
         <span>{scale.km} km</span>
         <span className="h-1.5 border-x-2 border-b-2 border-ink" style={{ width: scale.px }} />
       </div>
@@ -281,7 +281,7 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
         <button
           type="button"
           onClick={() => setView(FULL)}
-          className="absolute top-2 right-2 min-h-12 rounded-lg border-2 border-line bg-paper px-3 text-small font-bold shadow-sm"
+          className="absolute top-2 right-2 min-h-11 rounded-full bg-[#141414] px-4 text-small font-medium text-white"
         >
           Ganz Australien
         </button>

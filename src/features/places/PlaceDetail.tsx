@@ -36,8 +36,8 @@ export function PlaceDetail({ place, number, onEdit, onDeleted }: Props) {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <p className="font-sign text-xl font-bold text-stamp">Station {number}</p>
-        <p className="text-lg font-bold">{formatStay(place)}</p>
+        <p className="text-2xl font-medium tracking-tight text-stamp">Station {number}</p>
+        <p className="text-lg font-semibold">{formatStay(place)}</p>
         <p className="text-small text-muted">{formatLatLng(place)}</p>
       </div>
 

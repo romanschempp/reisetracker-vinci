@@ -74,7 +74,7 @@ export function EmployerFormPage() {
       <PageHeader
         title={isEdit ? 'Arbeitgeber bearbeiten' : 'Neuer Arbeitgeber'}
         action={
-          <Link to="/arbeitgeber" className="inline-flex min-h-12 items-center font-bold text-stamp">
+          <Link to="/arbeitgeber" className="inline-flex min-h-12 items-center font-semibold text-stamp">
             Abbrechen
           </Link>
         }
@@ -172,7 +172,7 @@ export function EmployerFormPage() {
         </Field>
 
         <DateField label="Erster Arbeitstag" value={values.startDate} onChange={(v) => set('startDate', v)} />
-        {errors.startDate && <p className="-mt-3 text-small font-bold text-redpen">{errors.startDate}</p>}
+        {errors.startDate && <p className="-mt-3 text-small font-semibold text-redpen">{errors.startDate}</p>}
 
         <DateField
           label="Letzter Arbeitstag (optional)"
@@ -181,9 +181,9 @@ export function EmployerFormPage() {
           optional
           onClear={() => set('endDate', '')}
         />
-        {errors.endDate && <p className="-mt-3 text-small font-bold text-redpen">{errors.endDate}</p>}
+        {errors.endDate && <p className="-mt-3 text-small font-semibold text-redpen">{errors.endDate}</p>}
 
-        <label className="flex cursor-pointer items-start gap-3 rounded-lg border-2 border-line p-4 has-checked:border-stamp">
+        <label className="flex cursor-pointer items-start gap-3 rounded-2xl border border-line p-4 has-checked:border-stamp">
           <input
             type="checkbox"
             checked={values.fullTime}
@@ -191,7 +191,7 @@ export function EmployerFormPage() {
             className="mt-1 size-6 shrink-0 accent-[var(--stamp)]"
           />
           <span>
-            <span className="block font-bold">Vollzeit</span>
+            <span className="block font-semibold">Vollzeit</span>
             <span className="block text-small text-muted">
               Arbeitest du hier in einer Woche an mindestens 5 Tagen, zählt die ganze Woche inklusive Wochenende als 7
               Tage. Prüf auf immi.homeaffairs.gov.au, ob das für deinen Job gilt.
