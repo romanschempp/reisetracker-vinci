@@ -1,0 +1,171 @@
+@import 'tailwindcss';
+
+/*
+ * Farbwelt: Saltbush-Papier, Eukalyptus-Tinte, Visumsstempel-Blau.
+ * Hi-Vis-Gelb nur als Markierung für „heute“.
+ */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --paper: #e8ece4;
+  --raised: #f5f7f2;
+  --ink: #1e2b24;
+  --muted: #4b5a51;
+  --line: #c6cfc3;
+  --stamp: #2946a8;
+  --on-stamp: #f5f7f2;
+  --stamp-wash: #d6ddf1;
+  --redpen: #ad2d17;
+  --redpen-wash: #f2d8d0;
+  --paddock: #2c6844;
+  --paddock-wash: #d3e5d5;
+  --hivis: #f5c400;
+  --tally-empty: rgb(30 43 36 / 0.16);
+  /* Kartenfarben der Bundesstaaten – Erdtöne, benachbarte klar unterscheidbar */
+  --sea: #d4ddef;
+  --region-border: #f5f7f2;
+  --region-wa: #ecd9b1;
+  --region-nt: #eac3ab;
+  --region-sa: #dde3c1;
+  --region-qld: #c7e0cd;
+  --region-nsw: #cfdaec;
+  --region-vic: #dcd3ea;
+  --region-tas: #c0ddd7;
+  --region-act: #f1dd9f;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #11161b;
+  --raised: #1a2128;
+  --ink: #dce3dc;
+  --muted: #9aa69e;
+  --line: #2d363e;
+  --stamp: #94a9f2;
+  --on-stamp: #11161b;
+  --stamp-wash: #1f2a4a;
+  --redpen: #f2917b;
+  --redpen-wash: #3b211b;
+  --paddock: #8fc9a2;
+  --paddock-wash: #1b2f24;
+  --hivis: #f5c400;
+  --tally-empty: rgb(220 227 220 / 0.14);
+  --sea: #172033;
+  --region-border: #11161b;
+  --region-wa: #3b3322;
+  --region-nt: #402b22;
+  --region-sa: #33382a;
+  --region-qld: #223a2c;
+  --region-nsw: #25303f;
+  --region-vic: #322b3e;
+  --region-tas: #20393a;
+  --region-act: #433a1c;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-stamp: var(--stamp);
+  --color-on-stamp: var(--on-stamp);
+  --color-stamp-wash: var(--stamp-wash);
+  --color-redpen: var(--redpen);
+  --color-redpen-wash: var(--redpen-wash);
+  --color-paddock: var(--paddock);
+  --color-paddock-wash: var(--paddock-wash);
+  --color-hivis: var(--hivis);
+
+  --font-sans: 'Atkinson Hyperlegible Next Variable', 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+  --font-sign: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+
+  /* Typografische Skala, Basis 17px, Verhältnis ≈ 1.25 */
+  --text-small: 0.882rem;
+  --text-small--line-height: 1.4;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.5;
+  --text-title: 1.75rem;
+  --text-title--line-height: 1.1;
+  --text-hero: 5.5rem;
+  --text-hero--line-height: 0.9;
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.5;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+  }
+  /* Inputs unter 16px lassen iOS beim Fokus zoomen */
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+  :focus-visible {
+    outline: 3px solid var(--stamp);
+    outline-offset: 2px;
+  }
+  button {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Die Strichliste zeichnet einen neuen Strich (einzige automatische Bewegung). */
+@keyframes draw-stroke {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.stroke-draw {
+  stroke-dasharray: 1;
+  animation: draw-stroke 420ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+/* Sheets fahren von unten herein – Antwort auf deine Aktion. */
+dialog.sheet {
+  transition:
+    translate 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 200ms ease,
+    overlay 260ms allow-discrete,
+    display 260ms allow-discrete;
+  translate: 0 0;
+  opacity: 1;
+}
+dialog.sheet:not([open]) {
+  translate: 0 100%;
+  opacity: 0;
+}
+@starting-style {
+  dialog.sheet[open] {
+    translate: 0 100%;
+    opacity: 0;
+  }
+}
+dialog.sheet::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stroke-draw {
+    animation: none;
+  }
+  dialog.sheet {
+    transition: none;
+  }
+}
