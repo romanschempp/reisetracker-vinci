@@ -97,7 +97,15 @@ export function PlaceForm({ place, initialPos, places, onDone }: Props) {
           label="Karte zum Setzen der Position. Tipp auf die Stelle, an der du bist."
         />
         <p className={`text-small ${errors.pos ? 'font-semibold text-redpen' : 'text-muted'}`}>
-          {errors.pos ?? (pos ? `Gesetzt: ${formatLatLng(pos)}` : 'Tipp auf die Karte, zum Zoomen zwei Finger oder die Knöpfe.')}
+          {errors.pos ??
+            (pos ? (
+              `Gesetzt: ${formatLatLng(pos)}`
+            ) : (
+              <>
+                <span className="lg:hidden">Tipp auf die Karte, zum Zoomen zwei Finger oder die Knöpfe.</span>
+                <span className="hidden lg:inline">Klick auf die Karte, zum Zoomen Mausrad oder die Knöpfe.</span>
+              </>
+            ))}
         </p>
         <Button variant="secondary" block onClick={locate} disabled={gps === 'locating'}>
           {gps === 'locating' ? 'Suche Standort …' : 'Meinen Standort verwenden'}
@@ -144,7 +152,7 @@ export function PlaceForm({ place, initialPos, places, onDone }: Props) {
                     type="button"
                     onClick={() => setFiles((fs) => fs.filter((_, j) => j !== i))}
                     aria-label={`Foto ${i + 1} entfernen`}
-                    className="absolute -top-2 -right-2 flex size-8 items-center justify-center rounded-full border border-paper bg-ink text-paper"
+                    className="absolute -top-2 -right-2 flex size-8 items-center justify-center rounded-full border-2 border-paper bg-ink text-paper transition-transform duration-150 hover:scale-110"
                   >
                     ×
                   </button>
