@@ -51,7 +51,7 @@ export function DashboardPage() {
             </h1>
             <p className="mt-6 max-w-[34rem] text-[1.5rem] leading-[1.2] tracking-tight text-balance lg:text-[1.75rem]">
               {remaining === 0 ? 'Geschafft. Du hast alle Tage zusammen.' : `${plural(remaining, 'Tag fehlt', 'Tage fehlen')} noch.`}{' '}
-              <span className="text-muted/70">
+              <span className="text-muted">
                 {finish && `Im bisherigen Tempo bist du etwa am ${formatDate(finish)} fertig.`}
                 {count.fromFullTimeWeeks > 0 &&
                   ` Davon ${plural(count.fromFullTimeWeeks, 'Wochenendtag', 'Wochenendtage')} aus vollen Vollzeitwochen.`}
@@ -84,7 +84,7 @@ export function DashboardPage() {
             </div>
             <div className="flex min-h-40 flex-col justify-between rounded-3xl bg-sage p-5 lg:min-h-48">
               <span className="text-[3.25rem] leading-none font-light tracking-[-0.04em]">{thisWeek}</span>
-              <span className="text-small text-muted">{thisWeek === 1 ? 'Tag' : 'Tage'} gearbeitet diese Woche</span>
+              <span className="text-small text-ink/75">{thisWeek === 1 ? 'Tag' : 'Tage'} gearbeitet diese Woche</span>
             </div>
           </div>
 

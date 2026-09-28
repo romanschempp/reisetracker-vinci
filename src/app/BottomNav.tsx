@@ -75,7 +75,7 @@ export function BottomNav() {
 /** Am Laptop: dieselbe schwarze Fläche als Seitenleiste links, mit Name und Widmung. */
 export function SideNav({ action }: { action?: ReactNode }) {
   return (
-    <aside className="fixed inset-y-3 left-3 z-10 hidden w-60 flex-col rounded-[1.75rem] bg-[#141414] p-3 text-white lg:flex">
+    <aside className="fixed inset-y-3 left-3 z-10 hidden w-60 flex-col rounded-[1.75rem] bg-[#141414] p-3 text-white ring-1 ring-white/10 lg:flex">
       <div className="flex items-center gap-3 px-3 pt-3 pb-8">
         <span className="flex size-9 items-center justify-center rounded-full bg-hivis text-on-hivis" aria-hidden>
           <svg viewBox="0 0 24 24" className="size-5" {...s} strokeWidth={2}>
@@ -111,7 +111,7 @@ export function SideNav({ action }: { action?: ReactNode }) {
       </nav>
       <div className="mt-auto flex flex-col gap-4">
         {action}
-        <p className="px-3 pb-2 text-[0.75rem] leading-snug text-white/35">Von Roman, für Vincent</p>
+        <p className="px-3 pb-2 text-[0.75rem] leading-snug text-white/45">Von Roman, für Vincent</p>
       </div>
     </aside>
   );
