@@ -73,7 +73,7 @@ export function DaysOverview({ workDays, workedDates, creditedDates }: Props) {
         onClick={() => (entry ? sheet.openEdit(entry) : sheet.openNew(date))}
         aria-label={`${weekdayShort(date)}, ${formatDate(date)}: ${state}`}
         aria-current={isToday ? 'date' : undefined}
-        className={`flex w-full flex-col items-center justify-center rounded-2xl border tabular-nums disabled:opacity-35 ${
+        className={`flex w-full flex-col items-center justify-center rounded-2xl border tabular-nums transition-colors duration-150 enabled:hover:border-ink/40 disabled:opacity-35 ${
           size === 'large' ? 'min-h-16 gap-1' : 'min-h-12 gap-0.5'
         } ${worked ? 'border-stamp bg-stamp text-on-stamp' : credited ? 'border-stamp text-ink' : 'border-transparent bg-paper text-ink'}`}
       >
@@ -89,8 +89,9 @@ export function DaysOverview({ workDays, workedDates, creditedDates }: Props) {
   const workedInMonth = monthDays.filter((d) => workedDates.has(d)).length;
   const fullTimeInMonth = monthDays.filter((d) => creditedDates.has(d) && !workedDates.has(d)).length;
 
-  const tab = 'min-h-11 flex-1 rounded-full px-3 font-medium aria-pressed:bg-stamp aria-pressed:text-on-stamp';
-  const arrow = 'flex size-12 items-center justify-center rounded-full border border-ink/40 text-xl disabled:opacity-25';
+  const tab = 'min-h-11 flex-1 rounded-full px-3 font-medium transition-colors duration-150 hover:text-ink aria-pressed:bg-stamp aria-pressed:text-on-stamp';
+  const arrow =
+    'flex size-12 items-center justify-center rounded-full border border-ink/40 text-xl transition-colors duration-150 enabled:hover:bg-ink/5 disabled:opacity-25';
 
   return (
     <section aria-label="Arbeitstage im Überblick" className="flex flex-col gap-4 rounded-3xl bg-raised p-4">

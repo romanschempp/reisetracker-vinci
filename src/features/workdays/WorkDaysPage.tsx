@@ -48,13 +48,13 @@ export function WorkDaysPage() {
         </EmptyState>
       ) : (
         <>
-          <p className="pb-4 text-muted">
+          <p className="max-w-3xl pb-4 text-muted">
             {plural(distinctDays, 'Tag', 'Tage')} mit {formatHours(totalHours)} erfasst.
           </p>
           {months.map((month) => (
-            <section key={month.label} aria-label={month.label} className="mb-6">
+            <section key={month.label} aria-label={month.label} className="mb-6 max-w-3xl">
               <h2 className="sticky top-0 z-[1] bg-paper py-2 text-2xl font-medium tracking-tight">{month.label}</h2>
-              <ul className="divide-y divide-line rounded-3xl bg-raised px-5">
+              <ul className="divide-y divide-line overflow-hidden rounded-3xl bg-raised">
                 {month.days.map((d) => {
                   const employer = employerById.get(d.employerId);
                   const counts = employer ? statusCounts(regionalStatus(employer.postcode, employer.workType)) : false;
@@ -64,7 +64,7 @@ export function WorkDaysPage() {
                         type="button"
                         onClick={() => sheet.openEdit(d)}
                         aria-label={`${formatDate(d.date)} bei ${employer?.name ?? 'unbekannt'} bearbeiten`}
-                        className="grid w-full grid-cols-[3.5rem_1fr_auto] items-center gap-3 py-3 text-left active:opacity-60"
+                        className="grid w-full grid-cols-[3.5rem_1fr_auto] items-center gap-3 px-5 py-3 text-left transition-colors duration-150 hover:bg-ink/[0.03] active:bg-ink/5"
                       >
                         <span className="flex flex-col leading-none">
                           <span className="text-small text-muted">{weekdayShort(d.date)}</span>

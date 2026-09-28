@@ -47,46 +47,53 @@ export function PlacesPage() {
     <>
       <PageHeader title="Orte" action={places.length > 0 && <Button onClick={() => open({ kind: 'new' })}>Ort eintragen</Button>} />
 
-      <AustraliaMap
-        places={places}
-        selectedId={mode && mode.kind !== 'new' ? mode.id : undefined}
-        onMapTap={(pos) => open({ kind: 'new', pos })}
-        onPlaceTap={(p) => open({ kind: 'view', id: p.id })}
-        label={`Karte von Australien mit ${plural(places.length, 'eingetragenem Ort', 'eingetragenen Orten')}`}
-      />
-      <p className="mt-2 text-small text-muted">Tipp auf die Karte, um dort einen Ort einzutragen.</p>
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-8">
+        <div className="lg:sticky lg:top-6">
+          <AustraliaMap
+            places={places}
+            selectedId={mode && mode.kind !== 'new' ? mode.id : undefined}
+            onMapTap={(pos) => open({ kind: 'new', pos })}
+            onPlaceTap={(p) => open({ kind: 'view', id: p.id })}
+            label={`Karte von Australien mit ${plural(places.length, 'eingetragenem Ort', 'eingetragenen Orten')}`}
+          />
+          <p className="mt-2 text-small text-muted">
+            <span className="lg:hidden">Tipp auf die Karte, um dort einen Ort einzutragen.</span>
+            <span className="hidden lg:inline">Klick auf die Karte, um dort einen Ort einzutragen. Mit dem Mausrad zoomst du.</span>
+          </p>
+        </div>
 
-      {places.length === 0 ? (
-        <EmptyState title="Noch keine Orte" action={<Button onClick={() => open({ kind: 'new' })}>Ersten Ort eintragen</Button>}>
-          Halte fest, wo du warst, wann und mit welchen Fotos. Die Orte werden in der Reihenfolge deiner Reise nummeriert und
-          auf der Karte verbunden.
-        </EmptyState>
-      ) : (
-        <ol className="mt-6 divide-y divide-line rounded-3xl bg-raised px-5" aria-label="Deine Reise">
-          {places.map((p: Place, i) => {
-            const n = counts?.get(p.id) ?? 0;
-            return (
-              <li key={p.id}>
-                <button
-                  type="button"
-                  onClick={() => open({ kind: 'view', id: p.id })}
-                  className="grid w-full grid-cols-[2.25rem_1fr_auto] items-center gap-3 py-3 text-left active:opacity-60"
-                >
-                  <span className="flex size-9 items-center justify-center rounded-full bg-stamp text-base font-medium text-on-stamp tabular-nums">
-                    {i + 1}
-                  </span>
-                  <span className="flex min-w-0 flex-col">
-                    <span className="truncate font-semibold">{p.name}</span>
-                    <span className="text-small text-muted">{formatStay(p)}</span>
-                    {n > 0 && <span className="text-small text-muted">{plural(n, 'Foto', 'Fotos')}</span>}
-                  </span>
-                  <Cover placeId={p.id} />
-                </button>
-              </li>
-            );
-          })}
-        </ol>
-      )}
+        {places.length === 0 ? (
+          <EmptyState title="Noch keine Orte" compact action={<Button onClick={() => open({ kind: 'new' })}>Ersten Ort eintragen</Button>}>
+            Halte fest, wo du warst, wann und mit welchen Fotos. Die Orte werden in der Reihenfolge deiner Reise nummeriert und
+            auf der Karte verbunden.
+          </EmptyState>
+        ) : (
+          <ol className="divide-y divide-line overflow-hidden rounded-3xl bg-raised" aria-label="Deine Reise">
+            {places.map((p: Place, i) => {
+              const n = counts?.get(p.id) ?? 0;
+              return (
+                <li key={p.id}>
+                  <button
+                    type="button"
+                    onClick={() => open({ kind: 'view', id: p.id })}
+                    className="grid w-full grid-cols-[2.25rem_1fr_auto] items-center gap-3 px-5 py-3 text-left transition-colors duration-150 hover:bg-ink/[0.03] active:bg-ink/5"
+                  >
+                    <span className="flex size-9 items-center justify-center rounded-full bg-stamp text-base font-medium text-on-stamp tabular-nums">
+                      {i + 1}
+                    </span>
+                    <span className="flex min-w-0 flex-col">
+                      <span className="truncate font-semibold">{p.name}</span>
+                      <span className="text-small text-muted">{formatStay(p)}</span>
+                      {n > 0 && <span className="text-small text-muted">{plural(n, 'Foto', 'Fotos')}</span>}
+                    </span>
+                    <Cover placeId={p.id} />
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+        )}
+      </div>
 
       <Sheet open={mode !== null} onClose={() => setMode(null)} title={title}>
         <div key={session}>

@@ -33,7 +33,7 @@ const THEMES: { value: ThemePref; label: string }[] = [
 
 function Choice({ name, checked, onChange, children }: { name: string; checked: boolean; onChange: () => void; children: ReactNode }) {
   return (
-    <label className="flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border border-line px-4 has-checked:border-stamp has-checked:bg-stamp-wash">
+    <label className="flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border border-line px-4 transition-colors duration-150 hover:border-ink/40 has-checked:border-stamp has-checked:bg-stamp-wash">
       <input type="radio" name={name} checked={checked} onChange={onChange} className="size-5 shrink-0 accent-[var(--stamp)]" />
       <span>{children}</span>
     </label>
@@ -55,7 +55,7 @@ export function SettingsPage() {
   return (
     <>
       <PageHeader title="Mehr" />
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-12 lg:gap-y-14">
         <fieldset className="flex flex-col gap-2">
           <legend className="mb-2 text-2xl font-medium tracking-tight">Ziel</legend>
           {TARGETS.map((t) => (

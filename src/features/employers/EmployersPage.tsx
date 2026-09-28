@@ -9,7 +9,8 @@ import { WORK_TYPE_LABELS, regionalStatus } from '../../lib/regional';
 import { PostcodeListNotice } from './PostcodeListNotice';
 import { RegionalStatusLabel } from './RegionalStatusLabel';
 
-const newLinkClass = 'inline-flex min-h-12 items-center rounded-full bg-stamp px-5 font-medium text-on-stamp';
+const newLinkClass =
+  'inline-flex min-h-12 items-center rounded-full bg-stamp px-5 font-medium text-on-stamp transition-opacity duration-150 hover:opacity-85 active:opacity-75';
 
 export function EmployersPage() {
   const employers = useEmployers();
@@ -52,14 +53,14 @@ export function EmployersPage() {
           Leg zuerst an, bei wem du arbeitest. Danach erfasst du deine Tage mit einem Tipp.
         </EmptyState>
       ) : (
-        <div className="flex flex-col gap-4">
+        <div className="flex max-w-3xl flex-col gap-4">
           <PostcodeListNotice workTypes={employers.map((e) => e.workType)} />
-          <ul className="divide-y divide-line rounded-3xl bg-raised px-5">
+          <ul className="divide-y divide-line overflow-hidden rounded-3xl bg-raised">
             {employers.map((e) => {
               const days = daysByEmployer.get(e.id)?.size ?? 0;
               return (
                 <li key={e.id}>
-                  <Link to={`/arbeitgeber/${e.id}`} className="flex flex-col gap-1 py-4 active:opacity-60">
+                  <Link to={`/arbeitgeber/${e.id}`} className="flex flex-col gap-1 px-5 py-4 transition-colors duration-150 hover:bg-ink/[0.03] active:bg-ink/5">
                     <span className="flex items-baseline justify-between gap-3">
                       <span className="text-lg font-semibold">{e.name}</span>
                       <RegionalStatusLabel status={regionalStatus(e.postcode, e.workType)} />

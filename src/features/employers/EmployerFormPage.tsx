@@ -74,13 +74,13 @@ export function EmployerFormPage() {
       <PageHeader
         title={isEdit ? 'Arbeitgeber bearbeiten' : 'Neuer Arbeitgeber'}
         action={
-          <Link to="/arbeitgeber" className="inline-flex min-h-12 items-center font-semibold text-stamp">
+          <Link to="/arbeitgeber" className="inline-flex min-h-12 items-center rounded-full px-1 font-medium underline decoration-1 underline-offset-4 hover:decoration-2">
             Abbrechen
           </Link>
         }
       />
 
-      <form onSubmit={save} noValidate className="flex flex-col gap-5">
+      <form onSubmit={save} noValidate className="flex max-w-xl flex-col gap-5">
         <Field label="Name" error={errors.name}>
           {(p) => (
             <input {...p} className={inputClass} value={values.name} onChange={(e) => set('name', e.target.value)} autoComplete="organization" />

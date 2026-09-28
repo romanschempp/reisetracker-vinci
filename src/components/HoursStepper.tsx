@@ -17,7 +17,7 @@ export function HoursStepper({ value, onChange }: Props) {
 
   const step = (delta: number) => onChange(Math.min(24, Math.max(STEP, value + delta)));
   const stepClass =
-    'size-14 shrink-0 rounded-full border border-ink/40 text-2xl font-light active:bg-ink/5 disabled:opacity-40';
+    'size-14 shrink-0 rounded-full border border-ink/40 text-2xl font-light transition-colors duration-150 enabled:hover:bg-ink/5 active:bg-ink/10 disabled:opacity-40';
 
   return (
     <div className="flex flex-col gap-1.5">
