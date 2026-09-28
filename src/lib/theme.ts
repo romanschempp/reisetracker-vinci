@@ -19,6 +19,10 @@ export function getThemePref(): ThemePref {
 export function applyTheme(pref: ThemePref = getThemePref()): void {
   const dark = pref === 'dark' || (pref === 'system' && media().matches);
   document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  // Statusleiste passend zur gewählten Darstellung, auch wenn sie vom System abweicht
+  for (const meta of document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')) {
+    meta.content = dark ? '#0E0F0E' : '#E3E6DF';
+  }
 }
 
 export function setThemePref(pref: ThemePref): void {

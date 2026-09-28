@@ -33,7 +33,7 @@ export function WorkDayForm(props: Props) {
         <Link
           to="/arbeitgeber/neu"
           onClick={() => props.onDone('closed')}
-          className="inline-flex min-h-13 items-center rounded-full bg-stamp px-6 font-medium text-on-stamp"
+          className="inline-flex min-h-13 items-center rounded-full bg-stamp px-6 font-medium text-on-stamp transition-opacity duration-150 hover:opacity-85"
         >
           Arbeitgeber anlegen
         </Link>
@@ -100,7 +100,7 @@ function LoadedForm({ workDay, onDone, initial }: Props & { initial: Initial }) 
         {employers.map((e) => (
           <label
             key={e.id}
-            className="flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border border-line px-4 has-checked:border-stamp has-checked:bg-stamp-wash"
+            className="flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border border-line px-4 transition-colors duration-150 hover:border-ink/40 has-checked:border-stamp has-checked:bg-stamp-wash"
           >
             <input
               type="radio"
@@ -178,7 +178,7 @@ function LoadedForm({ workDay, onDone, initial }: Props & { initial: Initial }) 
             </Button>
           </div>
         ) : (
-          <Button variant="danger" block onClick={() => setConfirmDelete(true)}>
+          <Button variant="quiet-danger" block onClick={() => setConfirmDelete(true)}>
             Tag löschen
           </Button>
         ))}

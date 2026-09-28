@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Banner } from '../../components/Banner';
 import { Button } from '../../components/Button';
+import { Tag } from '../../components/Tag';
 import { usePhotos } from '../../db/hooks';
 import { addPhotos, deletePlace } from '../../db/repos/places';
 import type { Place } from '../../db/types';
@@ -36,7 +37,7 @@ export function PlaceDetail({ place, number, onEdit, onDeleted }: Props) {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <p className="text-2xl font-medium tracking-tight text-stamp">Station {number}</p>
+        <Tag className="mb-3">Station {number}</Tag>
         <p className="text-lg font-semibold">{formatStay(place)}</p>
         <p className="text-small text-muted">{formatLatLng(place)}</p>
       </div>
@@ -48,7 +49,7 @@ export function PlaceDetail({ place, number, onEdit, onDeleted }: Props) {
           <ul className="grid grid-cols-3 gap-2">
             {photos.map((p, i) => (
               <li key={p.id}>
-                <button type="button" onClick={() => setViewing(i)} className="block w-full" aria-label={`Foto ${i + 1} öffnen`}>
+                <button type="button" onClick={() => setViewing(i)} className="block w-full transition-opacity duration-150 hover:opacity-85" aria-label={`Foto ${i + 1} öffnen`}>
                   <Thumb blob={p.thumb} alt="" />
                 </button>
               </li>
@@ -91,7 +92,7 @@ export function PlaceDetail({ place, number, onEdit, onDeleted }: Props) {
           </Button>
         </div>
       ) : (
-        <Button variant="danger" block onClick={() => setConfirmDelete(true)}>
+        <Button variant="quiet-danger" block onClick={() => setConfirmDelete(true)}>
           Ort löschen
         </Button>
       )}

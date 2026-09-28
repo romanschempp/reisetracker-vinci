@@ -67,7 +67,7 @@ export function WorkDaySheetProvider({ children }: { children: ReactNode }) {
         className="pointer-events-none fixed inset-x-0 bottom-[calc(5rem+env(safe-area-inset-bottom))] z-20 flex justify-center px-4 lg:bottom-8 lg:pl-63"
       >
         {toast && (
-          <p key={toast + session} className="toast-in flex items-center gap-2.5 rounded-full bg-ink py-3 pr-5 pl-3 font-medium text-paper shadow-lg">
+          <p key={toast + session} className="rise-in flex items-center gap-2.5 rounded-full bg-ink py-3 pr-5 pl-3 font-medium text-paper shadow-lg">
             <span className="flex size-6 items-center justify-center rounded-full bg-hivis text-on-hivis" aria-hidden>
               <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
                 <path d="m5 12.5 4.5 4.5L19 7.5" />

@@ -204,7 +204,7 @@ export function EmployerFormPage() {
         </Button>
 
         {isEdit && (
-          <Button variant="danger" block onClick={() => setConfirmDelete(true)}>
+          <Button variant="quiet-danger" block onClick={() => setConfirmDelete(true)}>
             Arbeitgeber löschen
           </Button>
         )}

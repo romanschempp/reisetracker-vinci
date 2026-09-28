@@ -1,12 +1,13 @@
 import type { ButtonHTMLAttributes } from 'react';
 
-type Variant = 'primary' | 'secondary' | 'danger' | 'quiet';
+type Variant = 'primary' | 'secondary' | 'danger' | 'quiet' | 'quiet-danger';
 
 const VARIANTS: Record<Variant, string> = {
   primary: 'bg-stamp text-on-stamp hover:opacity-85 active:opacity-75',
   secondary: 'border border-ink/40 text-ink hover:bg-ink/5 active:bg-ink/10',
   danger: 'border border-redpen text-redpen hover:bg-redpen-wash active:bg-redpen-wash',
   quiet: 'text-ink underline underline-offset-4 decoration-1 hover:decoration-2 px-1',
+  'quiet-danger': 'text-redpen rounded-full px-4 hover:bg-redpen-wash active:bg-redpen-wash',
 };
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -15,7 +16,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ variant = 'primary', block = false, className = '', type = 'button', ...rest }: Props) {
-  const size = variant === 'quiet' ? 'min-h-12' : 'min-h-13 px-6 rounded-full';
+  const size = variant === 'quiet' ? 'min-h-12' : variant === 'quiet-danger' ? 'min-h-12' : 'min-h-13 px-6 rounded-full';
   return (
     <button
       type={type}
