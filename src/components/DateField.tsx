@@ -61,13 +61,13 @@ export function DateField({ label, value, onChange, shortcuts = false, optional 
                 type="button"
                 onClick={() => onChange(date)}
                 aria-pressed={value === date}
-                className="min-h-12 rounded-full border border-ink/40 px-5 font-medium aria-pressed:border-stamp aria-pressed:bg-stamp aria-pressed:text-on-stamp"
+                className="min-h-12 rounded-full border border-ink/40 px-5 font-medium transition-colors duration-150 hover:bg-ink/5 aria-pressed:border-stamp aria-pressed:bg-stamp aria-pressed:text-on-stamp"
               >
                 {text}
               </button>
             ))}
           {optional && value && onClear && (
-            <button type="button" onClick={onClear} className="min-h-12 px-2 font-medium underline underline-offset-4">
+            <button type="button" onClick={onClear} className="min-h-12 px-2 font-medium underline decoration-1 underline-offset-4 hover:decoration-2">
               Datum entfernen
             </button>
           )}

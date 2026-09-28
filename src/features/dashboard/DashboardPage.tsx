@@ -95,7 +95,7 @@ export function DashboardPage() {
               <p className="font-semibold">{plural(count.notCounted, 'Tag zählt', 'Tage zählen')} nicht</p>
               <p className="text-small">
                 Du hast an diesen Tagen nur bei Arbeitgebern außerhalb der Region oder ohne specified work gearbeitet.{' '}
-                <Link to="/arbeitgeber" className="font-semibold underline underline-offset-2">
+                <Link to="/arbeitgeber" className="font-semibold underline underline-offset-2 hover:decoration-2">
                   Arbeitgeber prüfen
                 </Link>
               </p>

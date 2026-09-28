@@ -183,7 +183,7 @@ export function EmployerFormPage() {
         />
         {errors.endDate && <p className="-mt-3 text-small font-semibold text-redpen">{errors.endDate}</p>}
 
-        <label className="flex cursor-pointer items-start gap-3 rounded-2xl border border-line p-4 has-checked:border-stamp">
+        <label className="flex cursor-pointer items-start gap-3 rounded-2xl border border-line p-4 transition-colors duration-150 hover:border-ink/40 has-checked:border-stamp has-checked:bg-stamp-wash">
           <input
             type="checkbox"
             checked={values.fullTime}
