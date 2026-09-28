@@ -20,7 +20,7 @@ export function maxRankForZoom(zoom: number): number {
   return 8;
 }
 
-const CHAR_PX = 6.8; // mittlere Zeichenbreite von Inter Tight bei 12 px
+const CHAR_PX = 6.8; // mittlere Zeichenbreite der App-Schrift bei 12 px
 const LABEL_H = 15;
 const GAP = 7;
 
