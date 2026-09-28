@@ -12,7 +12,7 @@ export function PostcodeListNotice({ workTypes }: { workTypes: WorkType[] }) {
     <Banner tone="info">
       <p className="font-semibold">Regional-Prüfung noch nicht aktiv</p>
       <p className="text-small">
-        Die Postleitzahlenliste „{names}“ ist leer. Bis du sie in <code>src/config/regionalPostcodes.ts</code>{' '}
+        Die Postleitzahlenliste „{names}“ ist leer. Bis du sie in <code className="text-[0.85em] break-all">src/config/regionalPostcodes.ts</code>{' '}
         einträgst, zählen diese Tage vorläufig mit.
       </p>
     </Banner>

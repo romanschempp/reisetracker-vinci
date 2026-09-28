@@ -75,7 +75,7 @@ export function BottomNav() {
 /** Am Laptop: dasselbe Rauchglas als Seitenleiste links, mit Name und Widmung. */
 export function SideNav({ action }: { action?: ReactNode }) {
   return (
-    <aside className="fixed inset-y-3 left-3 z-10 hidden w-60 flex-col rounded-[1.75rem] bg-night/75 p-3 text-white ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150 lg:flex">
+    <aside className="fixed inset-y-3 left-3 z-10 hidden w-60 flex-col rounded-[1.75rem] bg-night/92 p-3 text-white ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150 lg:flex">
       <div className="flex items-center gap-3 px-3 pt-3 pb-8">
         <span className="flex size-9 items-center justify-center rounded-full bg-hivis text-on-hivis" aria-hidden>
           <svg viewBox="0 0 24 24" className="size-5" {...s} strokeWidth={2}>

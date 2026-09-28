@@ -89,7 +89,7 @@ export function SettingsPage() {
             Postleitzahlenlisten
           </h2>
           <p className="text-muted">
-            Gepflegt in <code>src/config/regionalPostcodes.ts</code>. Quelle: immi.homeaffairs.gov.au.
+            Gepflegt in <code className="text-[0.85em] break-all">src/config/regionalPostcodes.ts</code>. Quelle: immi.homeaffairs.gov.au.
           </p>
           <ul className="divide-y divide-line rounded-3xl bg-raised px-5">
             {Object.values(POSTCODE_LISTS).map((list) => (
