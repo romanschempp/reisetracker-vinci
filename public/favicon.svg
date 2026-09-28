@@ -1,18 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <radialGradient id="sun" cx="0.72" cy="0.1" r="0.85">
-      <stop offset="0" stop-color="#FFE089"/>
-      <stop offset="0.28" stop-color="#F28C4F"/>
-      <stop offset="0.6" stop-color="#8A2A0C"/>
-      <stop offset="1" stop-color="#260600"/>
-    </radialGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="46"/>
+    </filter>
+    <filter id="softer" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="70"/>
+    </filter>
+    <filter id="core" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF3EA" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#FFF3EA" stop-opacity="0.10"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF3EA" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFF3EA" stop-opacity="0.08"/>
+    </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="112" fill="url(#sun)"/>
-  <g stroke="#FFF0E6" stroke-width="22" stroke-linecap="round" fill="none">
-    <path d="M160 136 L160 376"/>
-    <path d="M218 136 L218 376"/>
-    <path d="M276 136 L276 376"/>
-    <path d="M334 136 L334 376"/>
-    <path d="M118 322 L392 190" stroke="#FFD66B"/>
+
+  <!-- Glutgrund wie in der App -->
+  <rect width="512" height="512" fill="#260600"/>
+  <!-- Sonnenschein: Halo, Glut links, gelber Kern oben rechts -->
+  <ellipse cx="360" cy="70" rx="300" ry="230" fill="#BF3F12" filter="url(#softer)"/>
+  <ellipse cx="40" cy="170" rx="170" ry="140" fill="#8A2A0C" filter="url(#softer)"/>
+  <ellipse cx="360" cy="96" rx="150" ry="110" fill="#F28C4F" filter="url(#soft)"/>
+  <ellipse cx="372" cy="104" rx="92" ry="70" fill="#FFD66B" filter="url(#soft)"/>
+  <ellipse cx="376" cy="100" rx="64" ry="46" fill="#FFE089" filter="url(#core)"/>
+
+  <!-- Glaskachel mit Strichliste -->
+  <rect x="96" y="208" width="320" height="224" rx="64" fill="url(#glass)" stroke="url(#rim)" stroke-width="3"/>
+  <g stroke-width="22" stroke-linecap="round" fill="none">
+    <g stroke="#FFF3EA">
+      <path d="M176 264 L176 376"/>
+      <path d="M226 264 L226 376"/>
+      <path d="M276 264 L276 376"/>
+      <path d="M326 264 L326 376"/>
+    </g>
+    <path d="M146 352 L356 288" stroke="#FFD66B"/>
   </g>
 </svg>
