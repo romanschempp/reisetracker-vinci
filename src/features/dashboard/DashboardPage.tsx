@@ -70,13 +70,13 @@ export function DashboardPage() {
 
         <div className="flex flex-col gap-2 lg:gap-3 lg:pt-12">
           <div className="grid grid-cols-2 gap-2 lg:gap-3">
-            <div className="flex min-h-40 flex-col justify-between rounded-3xl bg-stamp p-5 text-on-stamp lg:min-h-48">
+            <div className="flex min-h-40 flex-col justify-between rounded-3xl bg-ember p-5 text-on-ember shadow-[0_18px_48px_-12px_rgb(191_63_18/0.55)] lg:min-h-48">
               <span className="text-[3.25rem] leading-none font-light tracking-[-0.04em]">
                 {percent}
                 <span className="text-2xl"> %</span>
               </span>
               <span className="flex flex-col gap-3">
-                <span className="h-1 overflow-hidden rounded-full bg-on-stamp/15" aria-hidden>
+                <span className="h-1 overflow-hidden rounded-full bg-on-ember/20" aria-hidden>
                   <span className="block h-full rounded-full bg-hivis" style={{ width: `${percent}%` }} />
                 </span>
                 <span className="text-small opacity-70">vom Ziel geschafft</span>

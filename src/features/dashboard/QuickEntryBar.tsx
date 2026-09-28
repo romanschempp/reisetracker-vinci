@@ -5,7 +5,7 @@ import { useWorkDaySheet } from '../workdays/WorkDaySheetProvider';
 
 function ArrowDisc({ icon, small = false }: { icon: 'plus' | 'arrow'; small?: boolean }) {
   return (
-    <span className={`flex ${small ? 'size-11' : 'size-12'} shrink-0 items-center justify-center rounded-full bg-[#141414] text-white`} aria-hidden>
+    <span className={`flex ${small ? 'size-11' : 'size-12'} shrink-0 items-center justify-center rounded-full bg-night text-white`} aria-hidden>
       <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         {icon === 'plus' ? <path d="M12 5v14M5 12h14" /> : <path d="M7 17 17 7M9 7h8v8" />}
       </svg>
@@ -22,7 +22,7 @@ export function QuickEntryBar({ loggedToday }: { loggedToday: boolean }) {
   const wrap =
     'fixed inset-x-0 bottom-[calc(4rem+max(0.5rem,env(safe-area-inset-bottom)))] z-10 mx-auto max-w-xl px-3 pb-2 pt-6 bg-gradient-to-t from-paper from-60% to-transparent lg:hidden';
   const pill =
-    'flex min-h-16 w-full items-center justify-between gap-3 rounded-full bg-hivis py-2 pr-2 pl-6 text-left text-on-hivis transition-[filter,scale] duration-150 active:scale-[0.98] active:brightness-95';
+    'flex min-h-16 w-full items-center justify-between gap-3 rounded-full bg-hivis py-2 pr-2 pl-6 text-left text-on-hivis shadow-[0_14px_40px_-10px_rgb(255_170_60/0.7)] transition-[filter,scale] duration-150 active:scale-[0.98] active:brightness-95';
 
   if (!employer) {
     return (

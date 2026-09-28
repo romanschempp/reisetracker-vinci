@@ -53,7 +53,7 @@ export function WorkDaysPage() {
           </p>
           {months.map((month) => (
             <section key={month.label} aria-label={month.label} className="mb-6 max-w-3xl">
-              <h2 className="sticky top-0 z-[1] bg-paper py-2 text-2xl font-medium tracking-tight">{month.label}</h2>
+              <h2 className="sticky top-0 z-[1] bg-paper/70 py-2 backdrop-blur-xl text-2xl font-medium tracking-tight">{month.label}</h2>
               <ul className="divide-y divide-line overflow-hidden rounded-3xl bg-raised">
                 {month.days.map((d) => {
                   const employer = employerById.get(d.employerId);

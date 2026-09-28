@@ -75,7 +75,7 @@ export function TallyBoard({ done, target, todayIndex }: Props) {
           key={s.k}
           d={s.d}
           transform={`translate(${s.tx} ${s.ty})`}
-          stroke={s.filled ? 'var(--stamp)' : 'var(--tally-empty)'}
+          stroke={s.filled ? (s === today ? 'var(--on-hivis)' : 'var(--stamp)') : 'var(--tally-empty)'}
           strokeWidth={s.filled ? 3 : 1.8}
           strokeLinecap="round"
           fill="none"

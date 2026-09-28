@@ -4,7 +4,7 @@ type Variant = 'primary' | 'secondary' | 'danger' | 'quiet' | 'quiet-danger';
 
 const VARIANTS: Record<Variant, string> = {
   primary: 'bg-stamp text-on-stamp hover:opacity-85 active:opacity-75',
-  secondary: 'border border-ink/40 text-ink hover:bg-ink/5 active:bg-ink/10',
+  secondary: 'border border-line bg-raised text-ink hover:bg-ink/8 active:bg-ink/12',
   danger: 'border border-redpen text-redpen hover:bg-redpen-wash active:bg-redpen-wash',
   quiet: 'text-ink underline underline-offset-4 decoration-1 hover:decoration-2 px-1',
   'quiet-danger': 'text-redpen rounded-full px-4 hover:bg-redpen-wash active:bg-redpen-wash',

@@ -120,15 +120,20 @@ export function SettingsPage() {
           </p>
         </section>
 
-        <footer className="flex min-h-56 flex-col justify-between gap-8 rounded-3xl bg-[#141414] p-6 text-white">
-          <Tag className="self-start">Für dich</Tag>
-          <div>
+        <footer className="relative flex min-h-56 flex-col justify-between gap-8 overflow-hidden rounded-3xl bg-night p-6 text-white">
+          {/* Sonnenaufgang wie hinter der App – hier ganz nah */}
+          <span
+            className="pointer-events-none absolute -right-16 -bottom-28 size-80 rounded-full bg-[radial-gradient(circle_at_50%_60%,#ffe089_0%,#f28c4f_32%,#bf3f12_55%,transparent_72%)] opacity-90 blur-2xl"
+            aria-hidden
+          />
+          <Tag className="relative self-start">Für dich</Tag>
+          <div className="relative">
             <p className="text-[2.5rem] leading-none font-light tracking-[-0.03em]">
               Von Roman,
               <br />
-              <span className="text-white/45">für Vincent</span>
+              <span className="text-white/60">für Vincent</span>
             </p>
-            <p className="mt-4 text-small text-white/45">Version {__APP_VERSION__}</p>
+            <p className="mt-4 text-small text-white/60">Version {__APP_VERSION__}</p>
           </div>
         </footer>
       </div>

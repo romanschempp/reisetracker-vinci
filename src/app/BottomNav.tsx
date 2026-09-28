@@ -41,14 +41,14 @@ const ITEMS = [
   { to: '/mehr', label: 'Mehr', icon: ICONS.more, end: false },
 ];
 
-/** Schwebende schwarze Leiste am Handy – bleibt in beiden Themes dunkel, wie die Kacheln im Design. */
+/** Schwebende Leiste aus dunklem Rauchglas am Handy – bleibt in beiden Themes dunkel. */
 export function BottomNav() {
   return (
     <nav
       aria-label="Hauptbereiche"
       className="fixed inset-x-0 bottom-0 z-10 px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:hidden"
     >
-      <ul className="mx-auto grid h-16 max-w-xl grid-cols-5 rounded-full bg-[#141414] px-1.5 shadow-[0_8px_24px_rgb(0_0_0/0.18)] ring-1 ring-white/10">
+      <ul className="mx-auto grid h-16 max-w-xl grid-cols-5 rounded-full bg-night/75 px-1.5 shadow-[0_12px_32px_rgb(40_6_0/0.28)] ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150">
         {ITEMS.map((item) => (
           <li key={item.to} className="flex items-center">
             <NavLink
@@ -72,10 +72,10 @@ export function BottomNav() {
   );
 }
 
-/** Am Laptop: dieselbe schwarze Fläche als Seitenleiste links, mit Name und Widmung. */
+/** Am Laptop: dasselbe Rauchglas als Seitenleiste links, mit Name und Widmung. */
 export function SideNav({ action }: { action?: ReactNode }) {
   return (
-    <aside className="fixed inset-y-3 left-3 z-10 hidden w-60 flex-col rounded-[1.75rem] bg-[#141414] p-3 text-white ring-1 ring-white/10 lg:flex">
+    <aside className="fixed inset-y-3 left-3 z-10 hidden w-60 flex-col rounded-[1.75rem] bg-night/75 p-3 text-white ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150 lg:flex">
       <div className="flex items-center gap-3 px-3 pt-3 pb-8">
         <span className="flex size-9 items-center justify-center rounded-full bg-hivis text-on-hivis" aria-hidden>
           <svg viewBox="0 0 24 24" className="size-5" {...s} strokeWidth={2}>

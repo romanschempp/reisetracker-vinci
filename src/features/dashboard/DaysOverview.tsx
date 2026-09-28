@@ -75,7 +75,7 @@ export function DaysOverview({ workDays, workedDates, creditedDates }: Props) {
         aria-current={isToday ? 'date' : undefined}
         className={`flex w-full flex-col items-center justify-center rounded-2xl border tabular-nums transition-colors duration-150 enabled:hover:border-ink/40 disabled:opacity-35 ${
           size === 'large' ? 'min-h-16 gap-1' : 'min-h-12 gap-0.5'
-        } ${worked ? 'border-stamp bg-stamp text-on-stamp' : credited ? 'border-stamp text-ink' : 'border-transparent bg-paper text-ink'}`}
+        } ${worked ? 'border-stamp bg-stamp text-on-stamp' : credited ? 'border-stamp text-ink' : 'border-transparent bg-well text-ink'}`}
       >
         {size === 'large' && <span className="text-[0.75rem] leading-none opacity-70">{weekdayShort(date)}</span>}
         <span className={`font-normal leading-none ${size === 'large' ? 'text-xl' : 'text-lg'}`}>{Number(date.slice(8))}</span>
@@ -95,7 +95,7 @@ export function DaysOverview({ workDays, workedDates, creditedDates }: Props) {
 
   return (
     <section aria-label="Arbeitstage im Überblick" className="flex flex-col gap-4 rounded-3xl bg-raised p-4">
-      <div className="flex rounded-full bg-paper p-1 text-muted" role="group" aria-label="Zeitraum">
+      <div className="flex rounded-full bg-well p-1 text-muted" role="group" aria-label="Zeitraum">
         <button type="button" className={tab} aria-pressed={range === 'week'} onClick={() => choose('week')}>
           Diese Woche
         </button>

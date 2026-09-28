@@ -152,7 +152,7 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
     setView((v) => zoomAt(v, factor, v.x + v.w / 2, v.y + (v.w * ASPECT) / 2));
 
   const ctrl =
-    'flex size-12 items-center justify-center rounded-full bg-[#141414] text-xl font-light text-white shadow-md transition-opacity duration-150 hover:opacity-85 active:opacity-75';
+    'flex size-12 items-center justify-center rounded-full bg-night/80 text-xl font-light text-white shadow-md backdrop-blur-xl transition-opacity duration-150 hover:opacity-85 active:opacity-75';
 
   return (
     <div className="relative overflow-hidden rounded-3xl">
@@ -212,7 +212,7 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
               fontSize={12 * k}
               fontWeight={town.rank <= 3 ? 600 : 400}
               fill="var(--ink)"
-              stroke="var(--raised)"
+              stroke="var(--halo)"
               strokeWidth={3 * k}
               paintOrder="stroke"
               strokeLinejoin="round"
@@ -281,7 +281,7 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
         <button
           type="button"
           onClick={() => setView(FULL)}
-          className="absolute top-2 right-2 min-h-11 rounded-full bg-[#141414] px-4 text-small font-medium text-white shadow-md transition-opacity duration-150 hover:opacity-85"
+          className="absolute top-2 right-2 min-h-11 rounded-full bg-night/80 px-4 text-small font-medium text-white shadow-md backdrop-blur-xl transition-opacity duration-150 hover:opacity-85"
         >
           Ganz Australien
         </button>

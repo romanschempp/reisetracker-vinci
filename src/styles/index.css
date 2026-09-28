@@ -1,82 +1,108 @@
 @import 'tailwindcss';
 
 /*
- * Farbwelt: Salbei, Papierweiß und Tiefschwarz – ruhig und grafisch.
- * Warnwesten-Gelb ist der einzige Akzent: für „heute“ und den Haupt-Knopf.
- * Rot und Grün nur für Hinweise, die man nicht übersehen darf.
+ * Farbwelt „Glut & Sandstein“: roter Fels und tief stehende Sonne.
+ * Hinter jeder Seite glüht oben eine Sonne (Orange mit gelbem Kern),
+ * darüber liegen Milchglas-Kacheln. Sonnengelb ist der einzige Akzent –
+ * es markiert „heute“ und den Haupt-Knopf. Rot und Grün nur für Hinweise.
+ *
+ * --paper ist der deckende Grund (Seite, Sheets), --raised und --sage sind
+ * durchscheinendes Glas, --well eine eingelassene Mulde in einer Kachel.
  */
 :root,
 [data-theme='light'] {
   color-scheme: light;
-  --paper: #e3e6df;
-  --raised: #f8f8f5;
-  --sage: #c9cfc4;
-  --ink: #141414;
-  --muted: #62685f;
-  --line: #c4cac0;
-  --stamp: #141414;
-  --on-stamp: #f8f8f5;
-  --stamp-wash: #d4d9cf;
-  --redpen: #a8321e;
-  --redpen-wash: #efd9d2;
-  --paddock: #2f5c3e;
-  --paddock-wash: #d3e0d1;
-  --hivis: #e2f23f;
-  --on-hivis: #141414;
-  --tally-empty: rgb(20 20 20 / 0.14);
-  /* Kartenfarben der Bundesstaaten – Salbei- und Steintöne, benachbarte unterscheidbar */
-  --sea: #f8f8f5;
-  --region-border: #f8f8f5;
-  --region-wa: #d3d8ce;
-  --region-nt: #bfc6ba;
-  --region-sa: #c9cfc4;
-  --region-qld: #d9ddd4;
-  --region-nsw: #bcc3b7;
-  --region-vic: #d1d6cb;
-  --region-tas: #b3bbae;
-  --region-act: #a9b1a4;
+  --paper: #f4dcc6;
+  --raised: rgb(255 247 240 / 0.52);
+  --sage: rgb(255 214 184 / 0.5);
+  --well: rgb(110 38 12 / 0.07);
+  --glass-edge: rgb(255 255 255 / 0.55);
+  --ink: #34100a;
+  --muted: #7a4633;
+  --line: rgb(52 16 10 / 0.15);
+  --stamp: #34100a;
+  --on-stamp: #fff3ea;
+  --stamp-wash: rgb(52 16 10 / 0.08);
+  --ember: #bf3f12;
+  --on-ember: #fff3ea;
+  --night: #2a0802;
+  --redpen: #a3260f;
+  --redpen-wash: rgb(214 70 36 / 0.16);
+  --paddock: #3d6a2c;
+  --paddock-wash: rgb(110 160 70 / 0.2);
+  --hivis: #ffd35c;
+  --on-hivis: #34100a;
+  --tally-empty: rgb(52 16 10 / 0.16);
+  --glow-halo: #f28c4f;
+  --glow-core: #ffe089;
+  --glow-strength: 0.85;
+  /* Kartenfarben der Bundesstaaten – Sandsteintöne, benachbarte unterscheidbar */
+  --sea: rgb(255 247 240 / 0.45);
+  --halo: #fbeee2;
+  --region-border: #fbeee2;
+  --region-wa: #ecbd9c;
+  --region-nt: #df9f7a;
+  --region-sa: #e6b08c;
+  --region-qld: #f1caa9;
+  --region-nsw: #d9916b;
+  --region-vic: #e8b795;
+  --region-tas: #d38a64;
+  --region-act: #c77955;
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
-  --paper: #0e0f0e;
-  --raised: #1a1c19;
-  --sage: #2a2e28;
-  --ink: #eceee9;
-  --muted: #9ba197;
-  --line: #2f332d;
-  --stamp: #eceee9;
-  --on-stamp: #0e0f0e;
-  --stamp-wash: #262a24;
-  --redpen: #f0937d;
-  --redpen-wash: #3a211b;
-  --paddock: #9ccaa6;
-  --paddock-wash: #1c2c21;
-  --hivis: #e2f23f;
-  --on-hivis: #141414;
-  --tally-empty: rgb(236 238 233 / 0.14);
-  --sea: #141513;
-  --region-border: #141513;
-  --region-wa: #2b2f29;
-  --region-nt: #353a32;
-  --region-sa: #30352d;
-  --region-qld: #272b25;
-  --region-nsw: #383d35;
-  --region-vic: #2e332c;
-  --region-tas: #3d4339;
-  --region-act: #464c42;
+  --paper: #260600;
+  --raised: rgb(255 220 200 / 0.08);
+  --sage: rgb(255 150 100 / 0.13);
+  --well: rgb(0 0 0 / 0.22);
+  --glass-edge: rgb(255 225 205 / 0.1);
+  --ink: #fff0e6;
+  --muted: rgb(255 226 210 / 0.64);
+  --line: rgb(255 220 200 / 0.15);
+  --stamp: #fff0e6;
+  --on-stamp: #2a0800;
+  --stamp-wash: rgb(255 240 230 / 0.1);
+  --ember: #bf3f12;
+  --on-ember: #fff3ea;
+  --night: #140300;
+  --redpen: #ff9a80;
+  --redpen-wash: rgb(255 100 70 / 0.15);
+  --paddock: #bfe3a4;
+  --paddock-wash: rgb(160 220 130 / 0.13);
+  --hivis: #ffd66b;
+  --on-hivis: #2a0800;
+  --tally-empty: rgb(255 230 215 / 0.16);
+  --glow-halo: #d9481a;
+  --glow-core: #ffd66b;
+  --glow-strength: 0.7;
+  --sea: rgb(255 220 200 / 0.05);
+  --halo: #260600;
+  --region-border: #260600;
+  --region-wa: #5a2412;
+  --region-nt: #6a2c15;
+  --region-sa: #612812;
+  --region-qld: #52200f;
+  --region-nsw: #6e3017;
+  --region-vic: #5e2713;
+  --region-tas: #74341a;
+  --region-act: #7e3a1e;
 }
 
 @theme inline {
   --color-paper: var(--paper);
   --color-raised: var(--raised);
   --color-sage: var(--sage);
+  --color-well: var(--well);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-stamp: var(--stamp);
   --color-on-stamp: var(--on-stamp);
   --color-stamp-wash: var(--stamp-wash);
+  --color-ember: var(--ember);
+  --color-on-ember: var(--on-ember);
+  --color-night: var(--night);
   --color-redpen: var(--redpen);
   --color-redpen-wash: var(--redpen-wash);
   --color-paddock: var(--paddock);
@@ -84,10 +110,10 @@
   --color-hivis: var(--hivis);
   --color-on-hivis: var(--on-hivis);
 
-  --font-sans: 'Inter Tight Variable', 'Inter Tight', system-ui, sans-serif;
+  --font-sans: 'Urbanist Variable', 'Urbanist', system-ui, sans-serif;
 
   /* Typografische Skala, Basis 17px; große Zahlen dünn und eng gesetzt */
-  --text-small: 0.882rem;
+  --text-small: 0.9rem;
   --text-small--line-height: 1.4;
   --text-body: 1.0625rem;
   --text-body--line-height: 1.5;
@@ -104,13 +130,26 @@
     -webkit-tap-highlight-color: transparent;
   }
   body {
-    background: var(--paper);
+    background: transparent;
     color: var(--ink);
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: 1.5;
     min-height: 100dvh;
     overscroll-behavior-y: none;
+  }
+  /* Die Sonne hinter jeder Seite: oranger Hof, gelber Kern, weich auslaufend. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: var(--glow-strength);
+    background:
+      radial-gradient(34vmax 22vmax at 78% 2%, var(--glow-core), transparent 70%),
+      radial-gradient(70vmax 48vmax at 70% -4%, var(--glow-halo), transparent 72%),
+      radial-gradient(60vmax 40vmax at 0% 18%, color-mix(in oklab, var(--glow-halo) 55%, transparent), transparent 70%);
   }
   /* Zahlen in Listen und Kacheln stehen sauber untereinander */
   h1,
@@ -133,6 +172,25 @@
     cursor: pointer;
     -webkit-user-select: none;
     user-select: none;
+  }
+}
+
+/*
+ * Milchglas: Kacheln, Eingaben und Hinweise lassen die Sonne durchschimmern.
+ * Eine feine helle Kante hält die Fläche zusammen.
+ */
+@layer utilities {
+  .bg-raised,
+  .bg-sage,
+  .bg-stamp-wash,
+  .bg-redpen-wash,
+  .bg-paddock-wash {
+    -webkit-backdrop-filter: blur(22px) saturate(1.4);
+    backdrop-filter: blur(22px) saturate(1.4);
+  }
+  .rounded-3xl.bg-raised,
+  .rounded-3xl.bg-sage {
+    box-shadow: inset 0 0 0 1px var(--glass-edge);
   }
 }
 
@@ -183,7 +241,9 @@ dialog.sheet:not([open]) {
   }
 }
 dialog.sheet::backdrop {
-  background: rgb(0 0 0 / 0.4);
+  background: rgb(20 3 0 / 0.45);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   transition:
     opacity 260ms ease,
     overlay 260ms allow-discrete,

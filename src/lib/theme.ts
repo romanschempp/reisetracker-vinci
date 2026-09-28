@@ -21,7 +21,7 @@ export function applyTheme(pref: ThemePref = getThemePref()): void {
   document.documentElement.dataset.theme = dark ? 'dark' : 'light';
   // Statusleiste passend zur gewählten Darstellung, auch wenn sie vom System abweicht
   for (const meta of document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')) {
-    meta.content = dark ? '#0E0F0E' : '#E3E6DF';
+    meta.content = dark ? '#260600' : '#F4DCC6';
   }
 }
 
