@@ -79,14 +79,14 @@
   --sea: rgb(255 220 200 / 0.05);
   --halo: #260600;
   --region-border: #260600;
-  --region-wa: #5a2412;
-  --region-nt: #6a2c15;
-  --region-sa: #612812;
-  --region-qld: #52200f;
-  --region-nsw: #6e3017;
-  --region-vic: #5e2713;
-  --region-tas: #74341a;
-  --region-act: #7e3a1e;
+  --region-wa: #6e2d16;
+  --region-nt: #82391b;
+  --region-sa: #763218;
+  --region-qld: #652913;
+  --region-nsw: #8a3e1e;
+  --region-vic: #733017;
+  --region-tas: #934322;
+  --region-act: #9e4a26;
 }
 
 @theme inline {
