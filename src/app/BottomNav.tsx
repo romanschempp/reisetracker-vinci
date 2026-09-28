@@ -48,7 +48,7 @@ export function BottomNav() {
       aria-label="Hauptbereiche"
       className="fixed inset-x-0 bottom-0 z-10 px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:hidden"
     >
-      <ul className="mx-auto grid h-16 max-w-xl grid-cols-5 rounded-full bg-night/75 px-1.5 shadow-[0_12px_32px_rgb(40_6_0/0.28)] ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150">
+      <ul className="mx-auto grid h-16 max-w-xl grid-cols-5 rounded-full bg-night/90 px-1.5 shadow-[0_12px_32px_rgb(40_6_0/0.28)] ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150">
         {ITEMS.map((item) => (
           <li key={item.to} className="flex items-center">
             <NavLink
