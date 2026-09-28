@@ -28,13 +28,25 @@ export function DateField({ label, value, onChange, shortcuts = false, optional 
       <label htmlFor={id} className="font-semibold">
         {label}
       </label>
-      <div className="relative flex min-h-14 items-center rounded-2xl border border-line bg-raised px-4 focus-within:border-stamp">
+      <div className="relative flex min-h-14 items-center justify-between gap-3 rounded-2xl border border-line bg-raised px-4 transition-colors duration-150 focus-within:border-stamp hover:border-ink/40">
         <span className={value ? '' : 'text-muted'}>{value ? formatDateRelative(value, today) : 'Kein Datum'}</span>
+        <svg viewBox="0 0 24 24" className="size-5 shrink-0 text-muted" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" aria-hidden>
+          <rect x="3.5" y="5" width="17" height="15" rx="2" />
+          <path d="M3.5 10h17M8 3v4M16 3v4" />
+        </svg>
         <input
           id={id}
           type="date"
           value={value}
           onChange={(e) => e.target.value && onChange(e.target.value)}
+          onClick={(e) => {
+            // Chrome/Edge am Rechner öffnen den Kalender sonst nur über das (unsichtbare) Symbol
+            try {
+              e.currentTarget.showPicker();
+            } catch {
+              // ältere Browser: Standardverhalten reicht
+            }
+          }}
           className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
         />
       </div>
