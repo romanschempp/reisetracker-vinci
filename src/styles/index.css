@@ -164,6 +164,10 @@
   textarea {
     font-size: max(16px, 1em);
   }
+  /* Auswahlknöpfe und Häkchen in der App-Farbe statt Browser-Blau */
+  :root {
+    accent-color: var(--stamp);
+  }
   :focus-visible {
     outline: 2px solid var(--ink);
     outline-offset: 2px;

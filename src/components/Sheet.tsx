@@ -33,7 +33,7 @@ export function Sheet({ open, onClose, title, children }: Props) {
       onClick={(e) => {
         if (e.target === ref.current) onClose();
       }}
-      className="sheet fixed inset-x-0 top-auto bottom-0 m-0 max-h-[92dvh] w-full max-w-none overflow-y-auto overscroll-contain rounded-t-[2rem] bg-paper/90 p-0 text-ink ring-1 ring-white/10 backdrop-blur-2xl lg:inset-0 lg:m-auto lg:h-fit lg:max-h-[min(88dvh,54rem)] lg:w-[min(36rem,calc(100vw-4rem))] lg:rounded-[2rem] lg:shadow-[0_24px_64px_rgb(0_0_0/0.25)]"
+      className="sheet fixed inset-x-0 top-auto bottom-0 m-0 max-h-[92dvh] w-full max-w-none overflow-y-auto overscroll-contain rounded-t-[2rem] bg-paper/96 p-0 text-ink ring-1 ring-white/10 backdrop-blur-2xl lg:inset-0 lg:m-auto lg:h-fit lg:max-h-[min(88dvh,54rem)] lg:w-[min(36rem,calc(100vw-4rem))] lg:rounded-[2rem] lg:shadow-[0_24px_64px_rgb(0_0_0/0.25)]"
     >
       <div className="mx-auto max-w-xl px-4 pt-3 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:px-6 lg:px-7 lg:pt-7 lg:pb-7">
         <div className="mx-auto mb-3 h-1.5 w-12 rounded-full bg-line lg:hidden" aria-hidden />
