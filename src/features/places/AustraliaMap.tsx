@@ -152,14 +152,14 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
     setView((v) => zoomAt(v, factor, v.x + v.w / 2, v.y + (v.w * ASPECT) / 2));
 
   const ctrl =
-    'flex size-12 items-center justify-center rounded-full bg-[#141414] text-xl font-light text-white active:opacity-80';
+    'flex size-12 items-center justify-center rounded-full bg-[#141414] text-xl font-light text-white shadow-md transition-opacity duration-150 hover:opacity-85 active:opacity-75';
 
   return (
     <div className="relative overflow-hidden rounded-3xl">
       <svg
         ref={svgRef}
         viewBox={`${view.x} ${view.y} ${view.w} ${h}`}
-        className="block aspect-[1000/917] w-full touch-none select-none bg-[var(--sea)]"
+        className={`block aspect-[1000/917] w-full touch-none select-none bg-[var(--sea)] active:cursor-grabbing ${onMapTap ? 'cursor-crosshair' : 'cursor-grab'}`}
         role="img"
         aria-label={label}
         onPointerDown={onPointerDown}
@@ -281,7 +281,7 @@ export function AustraliaMap({ places, selectedId, draft, onMapTap, onPlaceTap, 
         <button
           type="button"
           onClick={() => setView(FULL)}
-          className="absolute top-2 right-2 min-h-11 rounded-full bg-[#141414] px-4 text-small font-medium text-white"
+          className="absolute top-2 right-2 min-h-11 rounded-full bg-[#141414] px-4 text-small font-medium text-white shadow-md transition-opacity duration-150 hover:opacity-85"
         >
           Ganz Australien
         </button>
