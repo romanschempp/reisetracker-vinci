@@ -40,7 +40,9 @@ export function DateField({ label, value, onChange, shortcuts = false, optional 
           value={value}
           onChange={(e) => e.target.value && onChange(e.target.value)}
           onClick={(e) => {
-            // Chrome/Edge am Rechner öffnen den Kalender sonst nur über das (unsichtbare) Symbol
+            // Chrome/Edge am Rechner öffnen den Kalender sonst nur über das (unsichtbare) Symbol.
+            // Nur bei der Maus – am Handy öffnet der Tipp den Wähler ohnehin.
+            if ((e.nativeEvent as PointerEvent).pointerType !== 'mouse') return;
             try {
               e.currentTarget.showPicker();
             } catch {
