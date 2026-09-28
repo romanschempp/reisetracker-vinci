@@ -6,3 +6,7 @@ dev-dist
 .DS_Store
 coverage
 .cache
+
+# Lokale Hilfsdateien
+.claude/*.local.md
+*.tsbuildinfo
