@@ -33,7 +33,8 @@ zeigt die App „Ungeprüft“ an und zählt die Tage vorläufig mit.
 
 Handys installieren eine PWA nur über **HTTPS**. `npm run dev` reicht dafür nicht. Am einfachsten:
 
-**Netlify Drop**: `npm run build` ausführen und den Ordner `dist/` auf <https://app.netlify.com/drop> ziehen. Du bekommst eine HTTPS-Adresse.
+**Netlify (automatisch)**: Die Seite ist mit diesem GitHub-Repository verbunden. Jeder Push auf `main` baut und veröffentlicht die App neu,
+Einstellungen stehen in `netlify.toml`.
 
 **GitHub Pages**: Repository anlegen, `dist/` veröffentlichen (z. B. mit der Action „Deploy static content to Pages“).
 Die App nutzt relative Pfade und Hash-Routing, läuft also auch unter `benutzer.github.io/cockpit/`.
